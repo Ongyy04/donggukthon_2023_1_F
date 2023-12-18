@@ -10,8 +10,9 @@ import Login from "./pages/Login";
 import Vote from "./pages/Vote";
 import Setting from "./pages/Setting";
 import Header from "./components/Header";
-import RoomMake from "./pages/RoomMake";
+import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import RoomMake from "./pages/RoomMake";
 import "./App.scss";
 const AppContent = () => {
   const location = useLocation();
@@ -25,7 +26,8 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<LoadingScreen />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<RoomMake />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/roomMake" element={<RoomMake />} />
         <Route path="/:roomName/vote/:memberID" element={<Vote />} />
         <Route path="/setting" element={<Setting />} />
         {/* ...other routes */}

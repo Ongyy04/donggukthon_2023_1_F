@@ -30,10 +30,10 @@ function Footer() {
     <footer className="footer">
       (
       <>
-        <button onClick={handleSettingsClick} className="footer-btn">
+        <button onClick={handleMenuClick} className="footer-btn">
           <img
             src={
-              activeButton === "settings"
+              activeButton === "menu"
                 ? "/assets/elements-red.png"
                 : "/assets/elements-green.png"
             }
@@ -50,10 +50,10 @@ function Footer() {
             alt="home"
           />
         </button>
-        <button onClick={handleMenuClick} className="footer-btn">
+        <button onClick={handleSettingsClick} className="footer-btn">
           <img
             src={
-              activeButton === "menu"
+              activeButton === "settings"
                 ? "/assets/setting-red.png"
                 : "/assets/setting-green.png"
             }
