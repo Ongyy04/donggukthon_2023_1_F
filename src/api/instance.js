@@ -5,15 +5,12 @@ const getAuthToken = () => localStorage.getItem("ziio-token");
 
 const BASE_URL = process.env.REACT_APP_SERVER_URL;
 
-const axiosAPI = (url, options) => {
-  return axios.create({
-    baseURL: BASE_URL,
-    ...options,
-  });
-};
+const defaultInstance = axios.create({
+  baseURL: BASE_URL,
+});
 
 // 요청 인터셉터를 추가하여 요청이 전송되기 전에 실행
-axiosAPI.interceptors.request.use(
+defaultInstance.interceptors.request.use(
   async (config) => {
     // 토큰을 가져오기
     const token = await getAuthToken();
@@ -30,8 +27,10 @@ axiosAPI.interceptors.request.use(
   }
 );
 
-const groupAPI = axios.create(axiosAPI.defaults);
-groupAPI.defaults.baseURL += "/group";
+const groupInstance = axios.create(defaultInstance.defaults);
+groupInstance.defaults.baseURL += "/group";
 
-const voteAPI = axios.create(axiosAPI.defaults);
-voteAPI.defaults.baseURL += "/vote";
+const voteInstance = axios.create(defaultInstance.defaults);
+voteInstance.defaults.baseURL += "/vote";
+
+export { defaultInstance, groupInstance, voteInstance };
