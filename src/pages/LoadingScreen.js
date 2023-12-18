@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./LoadingScreen.scss"; // 스타일시트 경로
-import "./CarouselComponent.scss";
+import styles from "./CarouselComponent.module.scss";
 import RenderIndicators from "../components/RenderIndicators";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+import classNames from "classnames";
 
 function LoadingScreen() {
   const navigate = useNavigate();
@@ -45,10 +47,10 @@ function LoadingScreen() {
     const touch = e.touches[0];
     const move = carouselRef.current.startX - touch.clientX;
 
-    if (move > 150 && currentSlide < images.length - 1) {
+    if (move > 100 && currentSlide < images.length - 1) {
       setCurrentSlide(currentSlide + 1);
       carouselRef.current.startX = touch.clientX;
-    } else if (move < -150 && currentSlide > 0) {
+    } else if (move < -100 && currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
       carouselRef.current.startX = touch.clientX;
     }
@@ -73,9 +75,9 @@ function LoadingScreen() {
 
   return isLoading ? (
     //로딩 완료시 사용할 화면 구성
-    <div className="carousel-container">
+    <div className={styles.carouselContainer}>
       <div
-        className="carousel-slides"
+        className={styles.carouselSlides}
         ref={carouselRef}
         onTouchStart={handleDragStart}
         onTouchMove={handleDragMove}
@@ -83,7 +85,9 @@ function LoadingScreen() {
         {images.map((src, index) => (
           <div
             key={index}
-            className={`slide ${index === currentSlide ? "active" : ""}`}
+            className={classNames(styles.slide, {
+              [styles.active]: index === currentSlide,
+            })}
             style={{ transform: `translateX(-${currentSlide * 100}%)` }} // 현재 슬라이드에 따라 위치 조정
           >
             <img src={src} alt={`Slide ${index}`} onLoad={handleImgLoad} />
@@ -94,13 +98,12 @@ function LoadingScreen() {
       <h1>{captions[currentSlide]}</h1> {/* 현재 슬라이드에 맞는 문구 표시 */}
       <p>{miniCaptions[currentSlide]}</p>
       {currentSlide === 2 ? (
-        <button
+        <Button
+          text={"시작하기"}
           onClick={() => {
             navigate("/home"); // 예시 경로
           }}
-        >
-          시작하기
-        </button>
+        />
       ) : (
         ""
       )}

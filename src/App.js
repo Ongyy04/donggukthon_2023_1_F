@@ -12,8 +12,10 @@ import Setting from "./pages/Setting";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import RoomMake from "./pages/RoomMake";
+import GroupMake from "./pages/GroupMake";
 import "./App.scss";
+import Waiting from "./pages/Waiting";
+import GroupList from "./pages/QuestionList";
 const AppContent = () => {
   const location = useLocation();
   const renderHeaderAndFooter = location.pathname !== "/";
@@ -27,8 +29,10 @@ const AppContent = () => {
         <Route path="/" element={<LoadingScreen />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/roomMake" element={<RoomMake />} />
-        <Route path="/:roomName/vote/:memberID" element={<Vote />} />
+        <Route path="/groupMake" element={<GroupMake />} />
+        <Route path="/menu" element={<GroupList />} />
+        <Route path="/vote" element={<Vote />} />
+        <Route path="/waiting" element={<Waiting />} />
         <Route path="/setting" element={<Setting />} />
         {/* ...other routes */}
       </Routes>
