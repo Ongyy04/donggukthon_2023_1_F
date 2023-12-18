@@ -1,6 +1,7 @@
 import React from "react";
-
+//모든 화면 상단에 들어가게 될 Headaer파일입니다.
 const Header = ({ children, theme }) => {
+  
   return (
     <div
       style={{
