@@ -12,6 +12,9 @@ function Home() {
   const hanldMakeRoomButton = () => {
     navigate("/groupMake");
   };
+  const handleGroupListButton = () => {
+    navigate("/groupList");
+  };
   return (
     <div className={styles.container}>
       {imageLoaded ? (
@@ -25,7 +28,7 @@ function Home() {
           </div>
           <div className={styles.buttonsContainer}>
             <Button text={"그룹 만들기"} onClick={hanldMakeRoomButton} />
-            <Button text={"내 그룹 들어가기"} />
+            <Button text={"내 그룹 들어가기"} onClick={handleGroupListButton} />
           </div>
         </div>
       ) : (

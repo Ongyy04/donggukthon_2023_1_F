@@ -15,7 +15,9 @@ import Footer from "./components/Footer";
 import GroupMake from "./pages/GroupMake";
 import "./App.scss";
 import Waiting from "./pages/Waiting";
-import GroupList from "./pages/QuestionList";
+import QuestionList from "./pages/QuestionList";
+import GroupList from "./pages/GroupList";
+
 const AppContent = () => {
   const location = useLocation();
   const renderHeaderAndFooter = location.pathname !== "/";
@@ -24,15 +26,16 @@ const AppContent = () => {
     <div className={"mainDiv"}>
       {/* "/" 경로가 아닐 때만 Header를 렌더링 */}
       {renderHeaderAndFooter && <Header />}
-
       <Routes>
         <Route path="/" element={<LoadingScreen />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/groupMake" element={<GroupMake />} />
-        <Route path="/menu" element={<GroupList />} />
+        <Route path="/menu" element={<QuestionList />} />
         <Route path="/vote" element={<Vote />} />
         <Route path="/waiting" element={<Waiting />} />
+        <Route path="/groupList" element={<GroupList />} />
+        <Route path="/:roomName/vote/:memberID" element={<Vote />} />
         <Route path="/setting" element={<Setting />} />
         {/* ...other routes */}
       </Routes>
