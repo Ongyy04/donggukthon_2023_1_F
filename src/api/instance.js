@@ -33,4 +33,16 @@ groupInstance.defaults.baseURL += "/group";
 const voteInstance = axios.create(defaultInstance.defaults);
 voteInstance.defaults.baseURL += "/vote";
 
-export { defaultInstance, groupInstance, voteInstance };
+const questionInstance = axios.create(defaultInstance.defaults);
+questionInstance.defaults.baseURL += "/question";
+
+const invitationInstance = axios.create(defaultInstance.defaults);
+invitationInstance.defaults.baseURL += "/invitation";
+
+export {
+  defaultInstance,
+  groupInstance,
+  voteInstance,
+  invitationInstance,
+  questionInstance,
+};
