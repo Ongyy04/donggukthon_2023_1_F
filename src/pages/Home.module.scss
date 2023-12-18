@@ -1,11 +1,9 @@
 .container {
   display: flex;
+  height: 90vh;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh; /* 뷰포트의 전체 높이를 차지하도록 수정 */
   background-color: #000; /* 배경색 */
-  overflow-y: hidden;
   background-image: url("../../public/assets/background-gold-tree.png");
   background-size: 350px 256px; /* 배경 이미지 크기 설정 */
   background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
@@ -13,9 +11,15 @@
 }
 
 .ImgandObjectContainer {
-  transform: translateY(-180px); /* 컨테이너를 위로 100픽셀 이동 */
+  width: 80%;
+  height: 90vh;
+  //수정 필요.
+
   .imageContainer {
     margin-bottom: 40px; /* 이미지와 버튼 사이의 마진 */
+    display: flex; /* Flexbox 레이아웃 사용 */
+    justify-content: center; /* 가로축을 기준으로 가운데 정렬 */
+    align-items: center; /* 세로축을 기준으로 가운데 정렬 */
   }
 
   .imageContainer img {
@@ -27,13 +31,20 @@
   .buttonsContainer {
     display: flex;
     flex-direction: column; /* 버튼을 세로로 정렬 */
+    h1,
+    p {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      white-space: pre-line;
+      color: white;
+    }
   }
   .inputContainer {
     display: flex;
     flex-direction: column; /* 버튼을 세로로 정렬 */
 
     input {
-      width: 250px; /* 너비 설정 */
       height: 70px; /* 높이 설정 */
       background-color: #ce294d; /* 내부 색상 설정 */
       color: white; /* 텍스트 색상 설정 */
@@ -57,6 +68,36 @@
         outline: none;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       }
+    }
+  }
+  .questionContainer {
+    background-color: #ce294d;
+    border-radius: 20px; // 둥근 모서리
+    margin-bottom: 20px; // 하단 마진
+    width: 100%; // 컨테이너 폭
+    color: white; // 텍스트 색상
+    text-align: center; // 텍스트 중앙 정렬
+    justify-content: center; // 가로축 중앙 정렬
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); // 그림자 효과
+    padding: 10px;
+    h1 {
+      font-size: 18px; // 텍스트 크기
+    }
+  }
+  .peoplesContainer {
+    width: 100%; // 컨테이너 폭
+    height: 30vh;
+    display: grid; // CSS Grid 레이아웃 사용
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(120px, 1fr)
+    ); // 최소 120px, 가능한 경우 1fr로 채우며, 공간이 부족하면 새로운 행 생성
+    gap: 10%; // 그리드 아이템 사이 간격
+    justify-content: center; // 가로축 중앙 정렬
+    overflow-y: auto;
+    overflow-x: hidden;
+    button {
+      font-size: 18px;
     }
   }
 }
