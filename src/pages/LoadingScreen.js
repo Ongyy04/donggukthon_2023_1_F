@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import "./LoadingScreen.scss"; // 스타일시트 경로
 import "./CarouselComponent.scss";
 import RenderIndicators from "../components/RenderIndicators";
+import { useNavigate } from "react-router-dom";
 
 function LoadingScreen() {
+  const navigate = useNavigate();
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -94,7 +96,7 @@ function LoadingScreen() {
       {currentSlide === 2 ? (
         <button
           onClick={() => {
-            /* 다음 화면으로 이동하는 로직 */
+            navigate("/home"); // 예시 경로
           }}
         >
           시작하기
