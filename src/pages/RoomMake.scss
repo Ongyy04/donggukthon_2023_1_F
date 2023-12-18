@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 뷰포트의 전체 높이를 차지하도록 수정 */
+  background-color: #000; /* 배경색 */
+  overflow-y: hidden;
+}
+.ImgandButtonContainer {
+  transform: translateY(-180px); /* 컨테이너를 위로 100픽셀 이동 */
+  .image-container {
+    margin-bottom: 40px; /* 이미지와 버튼 사이의 마진 */
+  }
+
+  .image-container img {
+    max-width: 100%; /* 이미지가 컨테이너를 넘지 않도록 함 */
+    width: 250px;
+    height: 250px; /* 이미지의 비율 유지 */
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column; /* 버튼을 세로로 정렬 */
+  }
+}
+
+/* 추가적인 반응형 디자인이나 세부 스타일링은 필요에 따라 추가 */
