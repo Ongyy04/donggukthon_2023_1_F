@@ -1,6 +1,12 @@
 import React from "react";
+import styles from "./Home.module.scss";
+
 function Login() {
-  return <h1>login</h1>;
+  return (
+    <div className={styles.container}>
+      <h1>login</h1>
+    </div>
+  );
 }
 
 export default Login;

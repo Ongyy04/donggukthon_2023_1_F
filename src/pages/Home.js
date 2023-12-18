@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import styles from "./Home.module.scss";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
-function RoomMake() {
+function Home() {
   const [imageLoaded, setImageLoaded] = useState(true);
-
+  const navigate = useNavigate();
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-  const handleMakeRoomButton = () => {
-    console.log("방을 생성하겠습니다.");
+  const hanldMakeRoomButton = () => {
+    navigate("/roomMake");
   };
-
   return (
     <div className={styles.container}>
       {imageLoaded ? (
@@ -23,10 +23,10 @@ function RoomMake() {
               onLoad={handleImageLoad}
             />
           </div>
-          <div className={styles.inputContainer}>
-            <input placeholder="그룹 명을 설정하세요."></input>
+          <div className={styles.buttonsContainer}>
+            <Button text={"그룹 만들기"} onClick={hanldMakeRoomButton} />
+            <Button text={"내 그룹 들어가기"} />
           </div>
-          <Button text={"생성하기"} onClick={handleMakeRoomButton} />
         </div>
       ) : (
         // 이미지가 로드되는 동안 표시할 로딩 표시기 또는 플레이스홀더
@@ -36,4 +36,4 @@ function RoomMake() {
   );
 }
 
-export default RoomMake;
+export default Home;
