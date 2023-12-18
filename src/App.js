@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import GroupMake from "./pages/GroupMake";
 import "./App.scss";
 import Waiting from "./pages/Waiting";
+import GroupList from "./pages/QuestionList";
 const AppContent = () => {
   const location = useLocation();
   const renderHeaderAndFooter = location.pathname !== "/";
@@ -29,6 +30,7 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/groupMake" element={<GroupMake />} />
+        <Route path="/menu" element={<GroupList />} />
         <Route path="/vote" element={<Vote />} />
         <Route path="/waiting" element={<Waiting />} />
         <Route path="/setting" element={<Setting />} />

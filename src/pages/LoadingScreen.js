@@ -47,10 +47,10 @@ function LoadingScreen() {
     const touch = e.touches[0];
     const move = carouselRef.current.startX - touch.clientX;
 
-    if (move > 150 && currentSlide < images.length - 1) {
+    if (move > 100 && currentSlide < images.length - 1) {
       setCurrentSlide(currentSlide + 1);
       carouselRef.current.startX = touch.clientX;
-    } else if (move < -150 && currentSlide > 0) {
+    } else if (move < -100 && currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
       carouselRef.current.startX = touch.clientX;
     }

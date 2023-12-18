@@ -8,6 +8,7 @@ function Vote() {
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
+
   const DUMMY_PEOPLES = [
     "홍규진",
     "공소연",
