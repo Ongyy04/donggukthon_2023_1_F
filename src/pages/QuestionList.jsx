@@ -22,7 +22,7 @@ function QuestionList() {
   ];
   const hanedleClickNameButton = (e) => {
     console.log("당신이 누른 질문은", e.target.textContent, "입니다.");
-    navigator("/vote");
+    navigator("/guess");
   };
   return (
     <div className={styles.container}>

@@ -45,7 +45,7 @@ const AppContent = () => {
         <Route path="/questionResult" element={<QuestionResult />} />
         <Route path="/guessRightResult" element={<GuessRightResult />} />
         <Route path="/guessWrongResult" element={<GuessWrongResult />} />
-        <Route path="/Guess" element={<Guess />} />
+        <Route path="/guess" element={<Guess />} />
         <Route path="/:roomName/vote/:memberID" element={<Vote />} />
         <Route
           path="invitation/:memberId/:groupId/"

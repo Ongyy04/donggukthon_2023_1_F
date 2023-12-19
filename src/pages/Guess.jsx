@@ -26,7 +26,8 @@ function Guess() {
 
   const hanedleClickNameButton = (e) => {
     console.log("당신이 누른 사람은", e.target.textContent, "입니다.");
-    navigator("/guessResult");
+    {/*잘 뽑은 건지 확인하는 로직 필요 상황에 따라 보내줄 곳이 다름*/}
+    navigator("/guessWrongResult");
   };
 
   return (
@@ -36,7 +37,7 @@ function Guess() {
           <div className={styles.snowDollarContainer}>
             {/* 나중에 대체되어야 함.*/}
             <h1>{"나를 뽑을 것 같은 사람은?"}</h1>
-            <img src="/assets/snow-dollar.png" alt="snowDollar" />
+            <img src="/assets/snow-dollar.png" alt="snowDollar" onLoad={handleImageLoad}/>
             <span>{` : ${DUMMY_MyDollar}`}</span>
           </div>
           <div className={styles.questionContainer}>
