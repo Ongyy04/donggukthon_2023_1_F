@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
-import { useQuery } from 'react-query';
-import { getGroups } from '../api/group';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { userState } from '../stores/user';
 
-
-
-const GroupList = () => {
-  const navigator = useNavigate();
-  const user = useRecoilValue(userState);
+function Conguraturation() {
   const [imageLoaded, setImageLoaded] = useState(true);
-  const {
-    data: groupsData,
-    error,
-    isLoading,
-  } = useQuery(['groups', user.memberId], () => getGroups(user.memberId), {
-    select: groupsData => groupsData.data.groupList,
-  }); // 임시로 1번 멤버의 그룹을 가져옴
-
+  const navigate = useNavigate();
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-  const handleClickGroupName = groupId => {
-    navigator('/groupHome/' + groupId);
+  const hanedleClickButton = () => {
+    {
+      /*링크 공유하고 눈꽃 받기 로직 추가*/
+    }
   };
+  const DUMMY_GROUPNAME = '동국톤 1팀';
+  const captions = `${DUMMY_GROUPNAME} 그룹 개설이 \n 완료되었습니다!`;
 
   return (
     <div className={styles.container}>
@@ -34,16 +23,16 @@ const GroupList = () => {
         <div className={styles.ImgandObjectContainer}>
           <div className={styles.imageContainer}>
             <img
-              src="/assets/snow-character.png"
+              src="/assets/party.png"
               alt="Decorative Snowflake"
               onLoad={handleImageLoad}
               style={{ width: '150px', height: '150px' }}
             />
           </div>
           <div className={styles.buttonsContainer}>
-            {groupsData?.map(group => (
-              <Button text={group.groupName} onClick={() => handleClickGroupName(group.groupId)} />
-            ))}{' '}
+            <h1>{captions}</h1>
+            <br></br>
+            <Button text={'링크 공유하고 눈꽃 받기'} onClick={hanedleClickButton} />
           </div>
         </div>
       ) : (
@@ -52,6 +41,6 @@ const GroupList = () => {
       )}
     </div>
   );
-};
+}
 
-export default GroupList;
+export default Conguraturation;

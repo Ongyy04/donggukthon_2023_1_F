@@ -20,7 +20,12 @@ function Waiting() {
       {imageLoaded ? (
         <div className={styles.ImgandObjectContainer}>
           <div className={styles.imageContainer}>
-            <img src="/assets/party.png" alt="Decorative Snowflake" onLoad={handleImageLoad} />
+            <img
+              src="/assets/party.png"
+              alt="Decorative Snowflake"
+              onLoad={handleImageLoad}
+              style={{ width: '150px', height: '150px' }}
+            />
           </div>
           <div className={styles.buttonsContainer}>
             <h1>{captions}</h1>
