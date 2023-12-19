@@ -1,17 +1,22 @@
 // InvitationCard.js
-import React from "react";
-import styles from "./InvitationCard.module.scss"; // CSS 모듈 임포트
-import Button from "../components/Button";
-import { useNavigate, useParams } from "react-router-dom";
+import React from 'react';
+import styles from './InvitationCard.module.scss'; // CSS 모듈 임포트
+import Button from '../components/Button';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const InvitationCard = () => {
-  let { memberId, groupId } = useParams();
+  const { memberId, groupId } = useParams();
+  {
+    /*멤버 아이디랑, groupID를 보내면, 이름이랑, 그룹 이름을 받아옴 */
+  }
 
   const navigator = useNavigate();
   const handleAgreeClick = () => {
-    navigator("/login");
+    navigator('/login');
     {
       /* 정보 계쏙 전달해야함. */
+      localStorage.setItem('memberID', memberId);
+      localStorage.setItem('GroupID', groupId);
     }
   };
   return (
@@ -25,10 +30,7 @@ const InvitationCard = () => {
           <p>{`${memberId}님이 \n‘${groupId}’ 그룹에 \n초대하셨습니다!`}</p>
         </div>
         <div className={styles.buttonContainer}>
-          <Button
-            text={"수락하고 가입하기"}
-            onClick={handleAgreeClick}
-          ></Button>
+          <Button text={'수락하고 가입하기'} onClick={handleAgreeClick}></Button>
         </div>
       </div>
     </div>
