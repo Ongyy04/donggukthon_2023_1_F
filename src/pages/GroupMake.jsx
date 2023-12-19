@@ -25,6 +25,10 @@ function GroupMake() {
     setImageLoaded(true);
   };
   const handleMakeRoomButton = e => {
+    if (groupName === '') {
+      console.log('그룹 명을 입력해주세요.');
+      return;
+    }
     makeGroup({ memberId: user.memberId, name: groupName });
     console.log('방을 생성하겠습니다. 방 이름:', groupName);
   };
