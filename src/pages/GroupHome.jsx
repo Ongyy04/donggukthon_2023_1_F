@@ -15,7 +15,7 @@ function GroupHome() {
     navigate('/vote/' + groupId);
   };
   const handleShowResult = () => {
-    navigate('/questionList');
+    navigate('/questionList/' + groupId);
   };
 
   return (

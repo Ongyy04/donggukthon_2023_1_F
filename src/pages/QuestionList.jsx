@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getQuestions } from '../api/question';
 
 function QuestionList() {
+  const { groupId } = useParams();
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigator = useNavigate();
   const {
@@ -16,9 +17,9 @@ function QuestionList() {
     select: questionsData => questionsData.data.questionList,
   });
 
-  const hanedleClickNameButton = e => {
-    console.log('당신이 누른 질문은', e.target.textContent, '입니다.');
-    navigator('/questionResult');
+  const hanedleClickNameButton = questionId => {
+    // console.log('당신이 누른 질문은', e.target.textContent, '입니다.');
+    navigator('/questionResult/' + groupId + '?question=' + questionId);
   };
 
   return (
@@ -28,7 +29,11 @@ function QuestionList() {
           <h1>원하는 주제를 Pick! 하세요!</h1>
           <div className={styles.questionsContainer}>
             {questionsData?.map(question => (
-              <Button key={question.quesionId} text={question.question} onClick={hanedleClickNameButton} />
+              <Button
+                key={question.questionId}
+                text={question.question}
+                onClick={() => hanedleClickNameButton(question.questionId)}
+              />
             ))}
           </div>
         </div>
