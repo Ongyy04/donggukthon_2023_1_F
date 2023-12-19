@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Waiting() {
+  const { groupId } = useParams();
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigate = useNavigate();
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
   const hanedleClickButton = () => {
-    navigate('/home');
+    navigate('/groupHome/' + groupId);
   };
   const captions = '투표가 \n 완료되었습니다.';
   const miniCaptions = '모든 사람의 투표가 완료되면 \n 결과를 확인할 수 있습니다.';
@@ -30,7 +31,7 @@ function Waiting() {
             <h1>{captions}</h1>
             <br></br>
             <p>{miniCaptions}</p>
-            <Button text={'다음 질문 보기'} onClick={hanedleClickButton} />
+            <Button text={'돌아가기'} onClick={hanedleClickButton} />
           </div>
         </div>
       ) : (

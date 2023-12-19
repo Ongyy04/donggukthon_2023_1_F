@@ -11,8 +11,8 @@ function GroupHome() {
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-  const handleVoteButton = () => {
-    navigate('/vote');
+  const handleVoteButton = groupId => {
+    navigate('/vote/' + groupId);
   };
   const handleShowResult = () => {
     navigate('/questionList');
@@ -26,7 +26,7 @@ function GroupHome() {
             <img src="/assets/snow-character.png" alt="Decorative Snowflake" onLoad={handleImageLoad} />
           </div>
           <div className={styles.buttonsContainer}>
-            <Button text={'투표하기'} onClick={handleVoteButton} />
+            <Button text={'투표하기'} onClick={() => handleVoteButton(groupId)} />
             <Button text={'결과보기'} onClick={handleShowResult} />
           </div>
         </div>
