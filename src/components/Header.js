@@ -13,7 +13,7 @@ const Header = ({ children, theme }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          padding: "40px 0",
+          padding: "40px 0px 15px 0px",
         }}
       >
         {/* 로고 이미지나 텍스트를 여기에 삽입 */}

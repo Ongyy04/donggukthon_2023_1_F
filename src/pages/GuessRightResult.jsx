@@ -22,7 +22,6 @@ function GuessRightResult() {
         <div className={styles.ImgandObjectContainer}>
           <div className={styles.snowDollarContainer}>
             {/* 나중에 대체되어야 함.*/}
-            <h1>{"나를 뽑을 것 같은 사람은?"}</h1>
             <img src="/assets/snow-dollar.png" alt="snowDollar" />
             <span>{` : ${DUMMY_MyDollar}`}</span>
           </div>

@@ -3,7 +3,7 @@ import styles from "./Home.module.scss";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+function GroupHome() {
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigate = useNavigate();
   const handleImageLoad = () => {
@@ -13,7 +13,7 @@ function Home() {
     navigate("/vote");
   };
   const handleShowResult = () => {
-    navigate("/quesionList");
+    navigate("/questionList");
   };
   return (
     <div className={styles.container}>
@@ -39,4 +39,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default GroupHome;

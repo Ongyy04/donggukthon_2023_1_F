@@ -16,7 +16,7 @@ function Login() {
   <div className={styles.container}>
       {imageLoaded ? (
         <div className={styles.ImgandObjectContainer}>
-          <h1>FLIRTING에 오신 것을 환영합니다!</h1>
+          <h1 className={styles.loginWelcome}>FLIRTING에 오신 것을 환영합니다!</h1>
           <div className={styles.imageContainer}>
             <img
               src="/assets/snow-character.png"

@@ -13,6 +13,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import GroupMake from "./pages/GroupMake";
+import GroupHome from './pages/GroupHome'
 import "./App.scss";
 import Waiting from "./pages/Waiting";
 import QuestionList from "./pages/QuestionList";
@@ -38,6 +39,7 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/groupMake" element={<GroupMake />} />
+        <Route path="/groupHome" element={<GroupHome />} />
         <Route path="/questionList" element={<QuestionList />} />
         <Route path="/vote" element={<Vote />} />
         <Route path="/waiting" element={<Waiting />} />
@@ -45,6 +47,7 @@ const AppContent = () => {
         <Route path="/questionResult" element={<QuestionResult />} />
         <Route path="/guessRightResult" element={<GuessRightResult />} />
         <Route path="/guessWrongResult" element={<GuessWrongResult />} />
+        
         <Route path="/guess" element={<Guess />} />
         <Route path="/:roomName/vote/:memberID" element={<Vote />} />
         <Route

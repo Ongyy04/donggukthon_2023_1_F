@@ -30,9 +30,8 @@ const GroupList = () => {
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-  const hanedleClickQuestionButton = (e) => {
-    console.log("당신이 누른 질문은", e.target.textContent, "입니다.");
-    navigator("/questionList");
+  const handleClickGroupName = (e) => {
+    navigator("/groupHome");
   };
 
   return (
@@ -49,7 +48,7 @@ const GroupList = () => {
           </div>
           <div className={styles.buttonsContainer}>
             {DUMMY_GROUPS.map((group) => (
-              <Button text={group} onClick={hanedleClickQuestionButton} />
+              <Button text={group} onClick={handleClickGroupName} />
             ))}{" "}
           </div>
         </div>
