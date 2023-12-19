@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Home.module.scss';
-import { loginInstance } from '../api/instance';
+import { loginState } from '../stores/user';
+import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigator = useNavigate();
+  const isLoggedin = useRecoilValue(loginState);
   const [imageLoaded, setImageLoaded] = useState(true);
   const handleImageLoad = () => {
     setImageLoaded(true);
@@ -11,6 +15,15 @@ function Login() {
   const handleClickGoogleLogin = async () => {
     window.location.href = process.env.REACT_APP_SERVER_URL + '/auth/login';
   };
+
+  useEffect(() => {
+    if (isLoggedin) {
+      alert('이미 로그인 하셨습니다.');
+      navigator('/home');
+    }
+  }, [isLoggedin, navigator]);
+
+  console.log(isLoggedin);
 
   return (
     <div className={styles.container}>

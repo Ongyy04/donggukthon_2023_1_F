@@ -20,6 +20,7 @@ import GuessRightResult from './pages/GuessRightResult';
 import GuessWrongResult from './pages/GuessWrongResult';
 import InvitationCard from './pages/InvitationCard';
 import { RecoilRoot } from 'recoil';
+import LoginRedirect from './pages/LoginRedirect';
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const AppContent = () => {
           <Route path="invitation/:memberId/:groupId/" element={<InvitationCard />} />
 
           <Route path="/setting" element={<Setting />} />
+          <Route path="/googleLogin" element={<LoginRedirect />} />
           {/* ...other routes */}
         </Routes>
         {renderHeaderAndFooter && <Footer />}
