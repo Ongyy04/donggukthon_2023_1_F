@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Home.module.scss';
+import { loginInstance } from '../api/instance';
 
 function Login() {
   const [imageLoaded, setImageLoaded] = useState(true);
@@ -7,11 +8,8 @@ function Login() {
     setImageLoaded(true);
   };
 
-  const handleClickGoogleLogin = () => {
-    console.log('구글 로그인 실행');
-    {
-      /*구글 로그인 관련 API 실행 */
-    }
+  const handleClickGoogleLogin = async () => {
+    window.location.href = process.env.REACT_APP_SERVER_URL + '/auth/login';
   };
 
   return (

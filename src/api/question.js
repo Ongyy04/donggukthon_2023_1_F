@@ -1,4 +1,4 @@
-import { sendRequest } from '../utils/api';
+import { sendRequest } from '../utils/request';
 import { questionInstance } from './instance';
 
 // 투표 질문 조회 (질문 개별 단위로 전달)
