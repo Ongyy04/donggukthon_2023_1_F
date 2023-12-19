@@ -4,6 +4,7 @@ export const sendRequest = async (instance, method, url, data = {}) => {
     const response = await instance[method](url, data);
     return response.data;
   } catch (error) {
+    console.error(error);
     return error.response.data;
   }
 };
@@ -12,6 +13,6 @@ export const sendRequest = async (instance, method, url, data = {}) => {
 export const createUrl = (path, params = {}) => {
   const query = Object.entries(params)
     .map(([key, value]) => `${key}=${value}`)
-    .join("&");
-  return `${path}${query ? `?${query}` : ""}`;
+    .join('&');
+  return `${path}${query ? `?${query}` : ''}`;
 };

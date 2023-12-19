@@ -17,6 +17,7 @@ function GroupHome() {
   const handleShowResult = () => {
     navigate('/questionList');
   };
+
   return (
     <div className={styles.container}>
       {imageLoaded ? (
