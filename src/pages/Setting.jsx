@@ -1,18 +1,29 @@
-import React from "react";
-import styles from "./Setting.module.scss"; // SCSS 모듈을 임포트합니다.
+import React from 'react';
+import styles from './Setting.module.scss'; // SCSS 모듈을 임포트합니다.
+import { getSetting } from '../api/setting';
+import { useRecoilValue } from 'recoil';
+import { userState } from '../stores/user';
+import { useQuery } from 'react-query';
 
 function Setting() {
-  const DUMMY_USER_NAME = "김동규";
-  const DUMMY_SNOW_DOLLAR = 50;
-
+  const user = useRecoilValue(userState);
+  const { data, isLoading, error } = useQuery(['setting', user.memberId], () => getSetting(user.memberId), {
+    select: responseData => {
+      // 'select' 옵션을 사용하여 필요한 데이터만 추출
+      return {
+        name: responseData.data.name,
+        snowflakes: responseData.data.snowflakes,
+      };
+    },
+  });
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
         <div className={styles.userInfo}>
           <div className={styles.avatar}></div>
           <div className={styles.details}>
-            <span className={styles.name}>{`이름: ${DUMMY_USER_NAME}`}</span>
-            <span className={styles.name}>{`❄️: ${DUMMY_SNOW_DOLLAR}`}</span>
+            <span className={styles.name}>{`이름: ${data.name}`}</span>
+            <span className={styles.name}>{`❄️: ${data.snowflakes}`}</span>
           </div>
         </div>
         <div className={styles.menu}>
