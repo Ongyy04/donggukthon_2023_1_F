@@ -26,7 +26,7 @@ function GroupMake() {
   };
   const handleMakeRoomButton = e => {
     if (groupName === '') {
-      console.log('그룹 명을 입력해주세요.');
+      alert('그룹명을 입력해주세요.');
       return;
     }
     makeGroup({ memberId: user.memberId, name: groupName });
