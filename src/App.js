@@ -37,7 +37,7 @@ const AppContent = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/groupMake" element={<GroupMake />} />
-          <Route path="/groupHome" element={<GroupHome />} />
+          <Route path="/groupHome/:groupId" element={<GroupHome />} />
           <Route path="/questionList" element={<QuestionList />} />
           <Route path="/vote" element={<Vote />} />
           <Route path="/waiting" element={<Waiting />} />

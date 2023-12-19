@@ -8,14 +8,11 @@ import { useRecoilValue } from 'recoil';
 import { userState } from '../stores/user';
 
 const DUMMY_GROUPS = [
-  '동국대 헤커톤1',
-  '동국대 헤커톤2',
-  '동국대 헤커톤3',
-  '동국대 헤커톤4',
-  '동국대 헤커톤5',
-  '동국대 헤커톤6',
-  '동국대 헤커톤7',
-  '동국대 헤커톤8',
+  { groupId: 1, groupName: '그룹1' },
+  { groupId: 2, groupName: '그룹2' },
+  { groupId: 3, groupName: '그룹3' },
+  { groupId: 4, groupName: '그룹4' },
+  { groupId: 5, groupName: '그룹5' },
 ];
 
 const GroupList = () => {
@@ -33,8 +30,8 @@ const GroupList = () => {
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-  const handleClickGroupName = e => {
-    navigator('/groupHome');
+  const handleClickGroupName = groupId => {
+    navigator('/groupHome/' + groupId);
   };
 
   return (
@@ -51,7 +48,7 @@ const GroupList = () => {
           </div>
           <div className={styles.buttonsContainer}>
             {DUMMY_GROUPS.map(group => (
-              <Button text={group} onClick={handleClickGroupName} />
+              <Button text={group.groupName} onClick={() => handleClickGroupName(group.groupId)} />
             ))}{' '}
           </div>
         </div>
