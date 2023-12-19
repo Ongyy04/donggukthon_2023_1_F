@@ -22,8 +22,12 @@ function Setting() {
         <div className={styles.userInfo}>
           <div className={styles.avatar}></div>
           <div className={styles.details}>
-            <span className={styles.name}>{`이름: ${data.name}`}</span>
-            <span className={styles.name}>{`❄️: ${data.snowflakes}`}</span>
+            {!isLoading && data && (
+              <>
+                <span className={styles.name}>{`이름: ${data.name}`}</span>
+                <span className={styles.name}>{`❄️: ${data.snowflakes}`}</span>
+              </>
+            )}
           </div>
         </div>
         <div className={styles.menu}>
