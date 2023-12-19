@@ -24,7 +24,7 @@ function Login() {
           </div>
           <div className={styles.googleLoginButton} onClick={handleClickGoogleLogin}>
             {/* 구글 로고 이미지를 여기에 넣을 것입니다 */}
-            <img src="/assets/Google-logo.png" alt="Google login" className={styles.googleLogo} />
+            <img src="/assets/Google-Logo.png" alt="Google login" className={styles.googleLogo} />
             <span className={styles.googleLoginText}>구글로 시작하기</span>
           </div>
         </div>
