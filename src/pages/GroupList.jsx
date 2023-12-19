@@ -26,7 +26,7 @@ const GroupList = () => {
     data: groupsData,
     error,
     isLoading,
-  } = useQuery(['groups'], () => getGroups(user.memberId), {
+  } = useQuery(['groups', user.memberId], () => getGroups(user.memberId), {
     select: groupsData => groupsData.data.groupList,
   }); // 임시로 1번 멤버의 그룹을 가져옴
 
