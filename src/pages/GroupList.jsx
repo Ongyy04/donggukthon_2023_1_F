@@ -47,7 +47,7 @@ const GroupList = () => {
             />
           </div>
           <div className={styles.buttonsContainer}>
-            {DUMMY_GROUPS.map(group => (
+            {groupsData?.map(group => (
               <Button text={group.groupName} onClick={() => handleClickGroupName(group.groupId)} />
             ))}{' '}
           </div>

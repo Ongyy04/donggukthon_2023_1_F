@@ -12,7 +12,7 @@ function GroupMake() {
   const user = useRecoilValue(userState);
   const [groupName, setGroupName] = useState(''); // 그룹명을 저장할 상태
   const [imageLoaded, setImageLoaded] = useState(true);
-  const { mutate: makeGroup } = useMutation((memberId, name) => createGroup(memberId, name), {
+  const { mutate: makeGroup } = useMutation(args => createGroup(args.memberId, args.name), {
     onSuccess: () => {
       // 생성 완료 화면으로 이동
     },
@@ -25,7 +25,7 @@ function GroupMake() {
     setImageLoaded(true);
   };
   const handleMakeRoomButton = e => {
-    makeGroup(user.memberId, groupName);
+    makeGroup({ memberId: user.memberId, name: groupName });
     console.log('방을 생성하겠습니다. 방 이름:', groupName);
   };
   const handleInputChange = e => {

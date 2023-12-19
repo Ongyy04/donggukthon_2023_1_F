@@ -31,7 +31,7 @@ function QuestionList() {
 
   const hanedleClickNameButton = e => {
     console.log('당신이 누른 질문은', e.target.textContent, '입니다.');
-    navigator('/guess');
+    navigator('/questionResult');
   };
   return (
     <div className={styles.container}>
