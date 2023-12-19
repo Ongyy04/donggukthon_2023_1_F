@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000; /* 배경색 */
+  background-size: 350px 256px; /* 배경 이미지 크기 설정 */
+  background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
+  background-position: right; /* 배경 이미지를 컨테이너 중앙에 배치 */
+  overflow-y: scroll;
+  // Profile.module.scss
+  .profile {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    color: white;
+    background-color: black;
+    padding: 20px;
+  }
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #333;
+    border-radius: 10px;
+  }
+
+  .avatar {
+    background-size: cover;
+    border-radius: 20%;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    width: 80px; // 아바타 이미지의 크기를 조절하세요.
+    height: 80px; // 아바타 이미지의 크기를 조절하세요.
+  }
+
+  .details {
+    display: flex;
+    font-size: 23px;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .snowflakes {
+    // 필요한 스타일을 추가하세요.
+  }
+
+  .menu {
+    background-color: #222;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .menuItem {
+    padding: 10px 0;
+    border-bottom: 1px solid #444; // 각 항목을 구분하는 선
+    &:last-child {
+      border-bottom: none; // 마지막 항목에는 선이 없도록
+    }
+  }
+
+  .menuTitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}

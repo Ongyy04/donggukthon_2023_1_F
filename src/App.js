@@ -18,7 +18,11 @@ import Waiting from "./pages/Waiting";
 import QuestionList from "./pages/QuestionList";
 import GroupList from "./pages/GroupList";
 import { QueryClient, QueryClientProvider } from "react-query";
-
+import QuestionResult from "./pages/QuestionResult";
+import Guess from "./pages/Guess";
+import GuessRightResult from "./pages/GuessRightResult";
+import GuessWrongResult from "./pages/GuessWrongResult";
+import InvitationCard from "./pages/InvitationCard";
 const queryClient = new QueryClient();
 
 const AppContent = () => {
@@ -38,7 +42,16 @@ const AppContent = () => {
         <Route path="/vote" element={<Vote />} />
         <Route path="/waiting" element={<Waiting />} />
         <Route path="/groupList" element={<GroupList />} />
+        <Route path="/questionResult" element={<QuestionResult />} />
+        <Route path="/guessRightResult" element={<GuessRightResult />} />
+        <Route path="/guessWrongResult" element={<GuessWrongResult />} />
+        <Route path="/Guess" element={<Guess />} />
         <Route path="/:roomName/vote/:memberID" element={<Vote />} />
+        <Route
+          path="invitation/:memberId/:groupId/"
+          element={<InvitationCard />}
+        />
+
         <Route path="/setting" element={<Setting />} />
         {/* ...other routes */}
       </Routes>

@@ -23,7 +23,7 @@ function Footer() {
 
   const handleSettingsClick = () => {
     setActiveButton("settings");
-    navigate("/settings");
+    navigate("/setting");
   };
 
   return (
