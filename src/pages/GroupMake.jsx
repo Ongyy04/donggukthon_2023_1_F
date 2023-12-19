@@ -12,9 +12,13 @@ function GroupMake() {
   const user = useRecoilValue(userState);
   const [groupName, setGroupName] = useState(''); // 그룹명을 저장할 상태
   const [imageLoaded, setImageLoaded] = useState(true);
+
   const { mutate: makeGroup } = useMutation(args => createGroup(args.memberId, args.name), {
-    onSuccess: () => {
-      // 생성 완료 화면으로 이동
+    onSuccess: (data, variables) => {
+      // 'data'는 'createGroup' 함수의 실행 결과 받는 Response, 'variables'는 'makeGroup' 함수에 전달된 인자
+      const groupId = data.groupId;
+      console.log('그룹 만들기 성공');
+      navigate(`/shareGroup/${variables.memberId}`, { state: { memberId: variables.memberId, groupId: groupId } });
     },
     onError: () => {
       console.log('그룹 생성 실패');

@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../stores/user';
 
-
-
 const GroupList = () => {
   const navigator = useNavigate();
   const user = useRecoilValue(userState);
@@ -42,7 +40,7 @@ const GroupList = () => {
           </div>
           <div className={styles.buttonsContainer}>
             {groupsData?.map(group => (
-              <Button text={group.groupName} onClick={() => handleClickGroupName(group.groupId)} />
+              <Button key={group.groupId} text={group.groupName} onClick={() => handleClickGroupName(group.groupId)} />
             ))}{' '}
           </div>
         </div>

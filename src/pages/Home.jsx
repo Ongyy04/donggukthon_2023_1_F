@@ -2,15 +2,22 @@ import React, { useEffect, useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
+import { userState } from '../stores/user';
+import { useRecoilValue } from 'recoil';
 import { getQuestions } from '../api/question';
 import { defaultInstance } from '../api/instance';
 import { getGroups } from '../api/group';
+import { acceptInvitation } from '../api/invitation';
+import { useMutation } from 'react-query';
 
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(true);
-  const [memberID, setMemberID] = useState('');
-  const [groupID, setGroupID] = useState('');
+  const inviterID = localStorage.getItem('InviterID');
+  const groupID = localStorage.getItem('GroupID');
+  const user = useRecoilValue(userState);
+  const memberID = user.memberId;
   const navigate = useNavigate();
+
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
@@ -20,22 +27,29 @@ function Home() {
   const handleGroupListButton = () => {
     navigate('/groupList');
   };
-  useEffect(() => {
-    const storedMemberID = localStorage.getItem();
-    const storedGroupID = localStorage.getItem();
 
-    if (storedMemberID && storedGroupID) {
-      setMemberID(storedMemberID);
-      setGroupID(storedGroupID);
-
-      // 여기에서 로그인이 성공했다고 가정하고 해당 그룹 페이지로 리디렉션할 수 있습니다.
-      // 로그인 로직이 성공하면 그룹 페이지로 이동합니다.
-
-      // localStorage에서 memberID와 groupID를 삭제합니다.
-      localStorage.removeItem('memberID');
+  const {
+    mutate: acceptGroupInvitation,
+    error,
+    isLoading,
+  } = useMutation(() => acceptInvitation(memberID, groupID, inviterID), {
+    onSuccess: () => {
+      console.log(memberID, '님이', groupID, '에 참가했습니다.');
+      localStorage.removeItem('InviterID');
       localStorage.removeItem('GroupID');
+      // 추가적인 성공 로직 (예: 페이지 리디렉션)
+    },
+    onError: error => {
+      console.log('초대 수락 실패: ', error);
+      // 에러 핸들링 로직
+    },
+  });
+
+  useEffect(() => {
+    if (inviterID && groupID) {
+      acceptGroupInvitation();
     }
-  }, []);
+  }, [inviterID, groupID, acceptGroupInvitation]);
 
   return (
     <div className={styles.container}>

@@ -19,6 +19,7 @@ import Guess from './pages/Guess';
 import GuessRightResult from './pages/GuessRightResult';
 import GuessWrongResult from './pages/GuessWrongResult';
 import InvitationCard from './pages/InvitationCard';
+import ShareGroup from './pages/ShareGroup';
 import { RecoilRoot } from 'recoil';
 
 const queryClient = new QueryClient();
@@ -45,10 +46,10 @@ const AppContent = () => {
           <Route path="/questionResult" element={<QuestionResult />} />
           <Route path="/guessRightResult" element={<GuessRightResult />} />
           <Route path="/guessWrongResult" element={<GuessWrongResult />} />
-
+          <Route path="/shareGroup/:memberId" element={<ShareGroup />} />
           <Route path="/guess" element={<Guess />} />
-          <Route path="/:roomName/vote/:memberID" element={<Vote />} />
-          <Route path="invitation/:memberId/:groupId/" element={<InvitationCard />} />
+          <Route path="/:groupName/vote/:memberID" element={<Vote />} />
+          <Route path="invitation/:inviterId/:groupId/" element={<InvitationCard />} />
 
           <Route path="/setting" element={<Setting />} />
           {/* ...other routes */}

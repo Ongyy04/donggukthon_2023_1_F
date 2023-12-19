@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-function Conguraturation() {
+function ShareGroup() {
   const [imageLoaded, setImageLoaded] = useState(true);
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { memberId, groupId } = location || {};
+  //이제 이거로 memberId로 groupId도 알아오고 그거로 URL 링크 만들엉주기
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
   const hanedleClickButton = () => {
-    {
       /*링크 공유하고 눈꽃 받기 로직 추가*/
-    }
+      const url = `${window.location.origin}/invitation/${memberId}/${groupId}`;
+      navigator.clipboard.writeText(url).then(
+        () => {
+          alert('클립보드에 초대 링크가 복사되었습니다. 공유해보세요!');
+        },
+        err => {
+          console.error('클립보드 복사 실패:', err);
+          alert('클립보드 복사에 실패했습니다.');
+        },
+      );
   };
   const DUMMY_GROUPNAME = '동국톤 1팀';
   const captions = `${DUMMY_GROUPNAME} 그룹 개설이 \n 완료되었습니다!`;
@@ -43,4 +54,4 @@ function Conguraturation() {
   );
 }
 
-export default Conguraturation;
+export default ShareGroup;
