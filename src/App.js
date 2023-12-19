@@ -39,8 +39,8 @@ const AppContent = () => {
           <Route path="/groupMake" element={<GroupMake />} />
           <Route path="/groupHome/:groupId" element={<GroupHome />} />
           <Route path="/questionList" element={<QuestionList />} />
-          <Route path="/vote" element={<Vote />} />
-          <Route path="/waiting" element={<Waiting />} />
+          <Route path="/vote/:groupId" element={<Vote />} />
+          <Route path="/waiting/:groupId" element={<Waiting />} />
           <Route path="/groupList" element={<GroupList />} />
           <Route path="/questionResult" element={<QuestionResult />} />
           <Route path="/guessRightResult" element={<GuessRightResult />} />

@@ -1,53 +1,80 @@
-import React, { useState } from "react";
-import styles from "./Home.module.scss";
-import Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import styles from './Home.module.scss';
+import Button from '../components/Button';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { userState } from '../stores/user';
+import { getQuestion } from '../api/question';
+import { useQuery } from 'react-query';
+import { useSearchParams } from 'react-router-dom';
+
 function Vote() {
+  const user = useRecoilValue(userState);
+  const { groupId } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams(); // URL 파라미터를 가져오기 위한 Hook
+  const questionIdFromParam = searchParams.get('question') || -1; // URL에서 질문 ID 가져오기
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigator = useNavigate();
+
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
 
-  const DUMMY_PEOPLES = [
-    "홍규진",
-    "공소연",
-    "김성준",
-    "고나연",
-    "오은서",
-    "최연아",
-    "예비1",
-    "예비2",
-    "예비3",
-    //fetching으로 데이터를 받아와야 함.
-  ];
-  const hanedleClickNameButton = (e) => {
-    console.log("당신이 누른 사람은", e.target.textContent, "입니다.");
-    navigator("/waiting");
+  const {
+    data: questionData,
+    error,
+    isLoading,
+  } = useQuery(
+    ['question', user.memberId, groupId, questionIdFromParam],
+    () => getQuestion(user.memberId, groupId, questionIdFromParam),
+    {
+      select: questionData => questionData.data,
+      onError: () => {
+        console.log('질문 가져오기 실패');
+      },
+    },
+  );
+
+  const handleClickNameButton = e => {
+    console.log('당신이 누른 사람은', e.target.textContent, '입니다.');
+    // 다음 질문으로 넘어가기 위한 로직
+    if (questionData?.questionIdList) {
+      const currentQuestionIndex = questionData.questionIdList.indexOf(parseInt(questionIdFromParam));
+      const nextQuestionId =
+        currentQuestionIndex !== -1
+          ? questionData.questionIdList[currentQuestionIndex + 1]
+          : questionData.questionIdList[1];
+      if (nextQuestionId !== undefined) {
+        setSearchParams({ question: nextQuestionId });
+      } else {
+        console.log('질문이 더 이상 없습니다.');
+        navigator('/waiting/' + groupId);
+      }
+    }
   };
+
   return (
     <div className={styles.container}>
-      {imageLoaded ? (
+      {imageLoaded && !isLoading ? (
         <div className={styles.ImgandObjectContainer}>
           <div className={styles.imageContainer}>
             <img
               src="/assets/snow-character.png"
               alt="Decorative Snowflake"
               onLoad={handleImageLoad}
-              style={{ width: "200px", height: "196px" }}
+              style={{ width: '200px', height: '196px' }}
             />
           </div>
           <div className={styles.questionContainer}>
-            <h1> Q. 분위기 메이커의 역할을 하는 사람은? </h1>
+            <h1>{questionData?.question}</h1>
           </div>
           <div className={styles.guessPeoplesContainer}>
-            {DUMMY_PEOPLES.map((name) => (
-              <Button key={name} text={name} onClick={hanedleClickNameButton} />
-            ))}{" "}
+            {questionData?.optionList.map(option => (
+              <Button key={option.memberId} text={option.memberName} onClick={handleClickNameButton} />
+            ))}
           </div>
         </div>
       ) : (
-        // 이미지가 로드되는 동안 표시할 로딩 표시기 또는 플레이스홀더
         <div>Loading...</div>
       )}
     </div>
