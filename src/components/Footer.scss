@@ -3,6 +3,7 @@
   left: 0;
   bottom: 0px;
   width: 100%;
+  z-index: 10;
   // 여기에 필요한 배경색, 패딩 등의 스타일 추가
   display: flex;
   justify-content: space-around; // 버튼을 균등하게 분포

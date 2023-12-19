@@ -43,7 +43,7 @@ const GroupList = () => {
               src="/assets/snow-character.png"
               alt="Decorative Snowflake"
               onLoad={handleImageLoad}
-              style={{ width: '200px', height: '195px' }}
+              style={{ width: '150px', height: '150px' }}
             />
           </div>
           <div className={styles.buttonsContainer}>
