@@ -4,9 +4,7 @@ const Header = ({ children, theme }) => {
   
   return (
     <div
-      style={{
-        backgroundColor: "black",
-      }}
+
     >
       <header
         style={{

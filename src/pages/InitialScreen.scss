@@ -6,13 +6,13 @@
   justify-content: center;
   align-items: center;
   height: 100vh; // 전체 뷰포트 높이
-  background-color: #000; // 배경색을 검정색으로 설정
 }
 
 // 나머지 스타일...
 
 // 이미지 컨테이너 스타일
 .Loading-image-container {
+  z-index: 10;
   width: 300px;
   height: 70px;
   display: flex;

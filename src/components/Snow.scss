@@ -1,0 +1,85 @@
+$flake-size: 8px;
+
+.backdrop {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  opacity: 0.7;
+}
+// styles.scss
+
+.my-container {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.flake {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+
+  border-radius: 50%; /*원형으로 만들어줌 */
+  animation: flakes 5s linear infinite;
+  &:before {
+    content: "❄";
+    display: block;
+    text-align: center;
+    font-size: $flake-size;
+    line-height: $flake-size;
+    color: #ffffff;
+  }
+}
+
+.flake:nth-of-type(2n) {
+  width: 4px;
+  height: 4px;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+.flake:nth-of-type(2n + 1) {
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+
+.flake:nth-of-type(5n) {
+  animation-duration: 6s;
+}
+.flake:nth-of-type(9n) {
+  animation-duration: 9s;
+  animation-delay: 3s;
+}
+
+@keyframes flakes {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 0.3;
+    transform: translate(-15px, 20vh);
+  }
+  40% {
+    opacity: 0.5;
+    transform: translate(15px, 40vh);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translate(-15px, 60vh);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translate(0px, 80vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100vh); /*웹브라우저의 총 크기*/
+  }
+}

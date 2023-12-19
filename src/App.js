@@ -33,7 +33,7 @@ const AppContent = () => {
   return (
     <div className={"mainDiv"}>
       {/* "/" 경로가 아닐 때만 Header를 렌더링 */}
-      {renderHeaderAndFooter && <Header />}
+      {renderHeaderAndFooter && <><Header /></>}
       <Routes>
         <Route path="/" element={<LoadingScreen />} />
         <Route path="/login" element={<Login />} />
@@ -58,6 +58,7 @@ const AppContent = () => {
         <Route path="/setting" element={<Setting />} />
         {/* ...other routes */}
       </Routes>
+
       {renderHeaderAndFooter && <Footer />}
     </div>
   );
