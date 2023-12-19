@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
+
 function QuestionResult() {
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigator = useNavigate();
