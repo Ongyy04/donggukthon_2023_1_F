@@ -140,7 +140,7 @@
   //questions랑 quesion은 다른 거니까 주의!!
   .questionsContainer {
     width: 100%; // 컨테이너 폭
-    height: 50vh;
+    height: 40vh;
     display: grid; // CSS Grid 레이아웃 사용
     grid-template-columns: repeat(
       auto-fill,
