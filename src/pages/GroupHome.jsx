@@ -1,34 +1,32 @@
-import React, { useState } from "react";
-import styles from "./Home.module.scss";
-import Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import styles from './Home.module.scss';
+import Button from '../components/Button';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function GroupHome() {
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigate = useNavigate();
+  const { groupId } = useParams();
+
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
   const handleVoteButton = () => {
-    navigate("/vote");
+    navigate('/vote');
   };
   const handleShowResult = () => {
-    navigate("/questionList");
+    navigate('/questionList');
   };
   return (
     <div className={styles.container}>
       {imageLoaded ? (
         <div className={styles.ImgandObjectContainer}>
           <div className={styles.imageContainer}>
-            <img
-              src="/assets/snow-character.png"
-              alt="Decorative Snowflake"
-              onLoad={handleImageLoad}
-            />
+            <img src="/assets/snow-character.png" alt="Decorative Snowflake" onLoad={handleImageLoad} />
           </div>
           <div className={styles.buttonsContainer}>
-            <Button text={"투표하기"} onClick={handleVoteButton} />
-            <Button text={"결과보기"} onClick={handleShowResult} />
+            <Button text={'투표하기'} onClick={handleVoteButton} />
+            <Button text={'결과보기'} onClick={handleShowResult} />
           </div>
         </div>
       ) : (

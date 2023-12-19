@@ -6,7 +6,7 @@ import "./Snow.scss";
 const Snow = () => {
   return (
     <div className="my-container">
-      {Array.from({ length: 1000 }, (_, index) => (
+      {Array.from({ length: 150 }, (_, index) => (
         <div
           key={index}
           className="flake"
