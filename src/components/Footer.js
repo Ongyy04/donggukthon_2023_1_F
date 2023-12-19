@@ -13,7 +13,7 @@ function Footer() {
 
   const handleMenuClick = () => {
     setActiveButton("menu");
-    navigate("/menu");
+    navigate("/groupList");
   };
 
   const handleHomeClick = () => {
