@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  background-image: url("../../public/assets/background-gold-tree.png");
+  background-image: url('../../public/assets/background-gold-tree.png');
   background-size: 350px 256px; /* 배경 이미지 크기 설정 */
   background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
   background-position: right; /* 배경 이미지를 컨테이너 중앙에 배치 */
@@ -146,12 +146,14 @@
       auto-fill,
       minmax(300px, 1fr)
     ); // 최소 120px, 가능한 경우 1fr로 채우며, 공간이 부족하면 새로운 행 생성
-    gap: 5%; // 그리드 아이템 사이 간격
+    gap: 3%; // 그리드 아이템 사이 간격
     justify-content: center; // 가로축 중앙 정렬
     overflow-y: auto;
     overflow-x: hidden;
+    margin-top: 35px;
     button {
-      font-size: 30px;
+      font-size: 14px;
+      padding: 15px 20px;
     }
   }
   .resultContainer {
@@ -226,10 +228,11 @@
       text-decoration-line: underline;
     }
   }
-  .Login{
-    img{width: 308px;
-        height: 70px;
-      }
+  .Login {
+    img {
+      width: 308px;
+      height: 70px;
+    }
   }
 }
 
