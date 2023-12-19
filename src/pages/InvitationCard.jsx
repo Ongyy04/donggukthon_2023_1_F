@@ -2,7 +2,6 @@
 import React from 'react';
 import styles from './InvitationCard.module.scss'; // CSS 모듈 임포트
 import Button from '../components/Button';
-import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getInvitation } from '../api/invitation';
@@ -27,23 +26,6 @@ const InvitationCard = () => {
       },
     },
   );
-
-  // 동적으로 메타 태그 정보를 업데이트하기 위한 state
-  const [metaInfo, setMetaInfo] = useState({
-    title: '플러팅 초대장',
-    description: '투표로 못다 한 진심을 전해보세요!',
-    image: 'https://flirting.vercel.app/assets/snow-character.png',
-  });
-
-  useEffect(() => {
-    if (data) {
-      setMetaInfo({
-        title: data.inviterName + '의 초대가 도착했어요',
-        description: '나에 대한 다른 사람들의 생각을 들어봐요!',
-        image: 'https://flirting.vercel.app/assets/snow-character.png',
-      });
-    }
-  }, [data]);
 
   const navigator = useNavigate();
   const handleAgreeClick = () => {
