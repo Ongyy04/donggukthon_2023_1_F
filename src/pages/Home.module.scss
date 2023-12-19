@@ -32,7 +32,9 @@
 
   .buttonsContainer {
     display: flex;
-    flex-direction: column; /* 버튼을 세로로 정렬 */
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 40vh;
     h1,
     p {
       text-align: center;
@@ -40,6 +42,9 @@
       align-items: center;
       white-space: pre-line;
       color: white;
+    }
+    button {
+      padding: 25px; /* 버튼을 세로로 정렬 */
     }
   }
   .inputContainer {
@@ -102,7 +107,7 @@
       font-size: 18px;
     }
   }
-//questions랑 quesion은 다른 거니까 주의!!
+  //questions랑 quesion은 다른 거니까 주의!!
   .questionsContainer {
     width: 100%; // 컨테이너 폭
     height: 50vh;

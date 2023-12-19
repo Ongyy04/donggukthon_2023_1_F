@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./LoadingScreen.scss"; // 스타일시트 경로
+import "./InitialScreen.scss"; // 스타일시트 경로
 import styles from "./CarouselComponent.module.scss";
 import RenderIndicators from "../components/RenderIndicators";
 import { useNavigate } from "react-router-dom";
@@ -75,13 +75,12 @@ function LoadingScreen() {
 
   return isLoading ? (
     //로딩 완료시 사용할 화면 구성
-    <div className={styles.carouselContainer}>
-      <div
-        className={styles.carouselSlides}
-        ref={carouselRef}
-        onTouchStart={handleDragStart}
-        onTouchMove={handleDragMove}
-      >
+    <div
+      className={styles.carouselContainer}
+      onTouchStart={handleDragStart}
+      onTouchMove={handleDragMove}
+    >
+      <div className={styles.carouselSlides} ref={carouselRef}>
         {images.map((src, index) => (
           <div
             key={index}

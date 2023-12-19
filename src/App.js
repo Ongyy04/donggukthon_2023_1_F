@@ -5,7 +5,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import LoadingScreen from "./pages/LoadingScreen";
+import LoadingScreen from "./pages/InitialScreen";
 import Login from "./pages/Login";
 import Vote from "./pages/Vote";
 import Setting from "./pages/Setting";
@@ -31,7 +31,7 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/groupMake" element={<GroupMake />} />
-        <Route path="/menu" element={<QuestionList />} />
+        <Route path="/questionList" element={<QuestionList />} />
         <Route path="/vote" element={<Vote />} />
         <Route path="/waiting" element={<Waiting />} />
         <Route path="/groupList" element={<GroupList />} />
