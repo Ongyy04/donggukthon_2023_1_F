@@ -7,13 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../stores/user';
 
-const DUMMY_GROUPS = [
-  { groupId: 1, groupName: '그룹1' },
-  { groupId: 2, groupName: '그룹2' },
-  { groupId: 3, groupName: '그룹3' },
-  { groupId: 4, groupName: '그룹4' },
-  { groupId: 5, groupName: '그룹5' },
-];
+
 
 const GroupList = () => {
   const navigator = useNavigate();

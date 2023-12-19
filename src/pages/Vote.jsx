@@ -40,7 +40,7 @@ function Vote() {
           <div className={styles.questionContainer}>
             <h1> Q. 분위기 메이커의 역할을 하는 사람은? </h1>
           </div>
-          <div className={styles.guessPeoplesContainer}>
+          <div className={styles.votePeoplesContainer}>
             {DUMMY_PEOPLES.map((name) => (
               <Button key={name} text={name} onClick={hanedleClickNameButton} />
             ))}{" "}

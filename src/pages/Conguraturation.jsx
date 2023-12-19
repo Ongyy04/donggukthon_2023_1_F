@@ -3,17 +3,20 @@ import styles from './Home.module.scss';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 
-function Waiting() {
+function Conguraturation() {
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigate = useNavigate();
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
   const hanedleClickButton = () => {
-    navigate('/home');
+    {
+      /*링크 공유하고 눈꽃 받기 로직 추가*/
+    }
   };
-  const captions = '투표가 \n 완료되었습니다.';
-  const miniCaptions = '모든 사람의 투표가 완료되면 \n 결과를 확인할 수 있습니다.';
+  const DUMMY_GROUPNAME = '동국톤 1팀';
+  const captions = `${DUMMY_GROUPNAME} 그룹 개설이 \n 완료되었습니다!`;
+
   return (
     <div className={styles.container}>
       {imageLoaded ? (
@@ -29,8 +32,7 @@ function Waiting() {
           <div className={styles.buttonsContainer}>
             <h1>{captions}</h1>
             <br></br>
-            <p>{miniCaptions}</p>
-            <Button text={'다음 질문 보기'} onClick={hanedleClickButton} />
+            <Button text={'링크 공유하고 눈꽃 받기'} onClick={hanedleClickButton} />
           </div>
         </div>
       ) : (
@@ -41,4 +43,4 @@ function Waiting() {
   );
 }
 
-export default Waiting;
+export default Conguraturation;

@@ -68,6 +68,7 @@
     flex-direction: column;
     overflow-y: scroll;
     height: 40vh;
+    width: 100%;
     h1,
     p {
       text-align: center;
@@ -83,13 +84,13 @@
   .inputContainer {
     display: flex;
     flex-direction: column; /* 버튼을 세로로 정렬 */
+    width: 100%;
 
     input {
       height: 70px; /* 높이 설정 */
       background-color: #ce294d; /* 내부 색상 설정 */
       color: white; /* 텍스트 색상 설정 */
       text-align: center; /* 텍스트 중앙 정렬 */
-
       font-size: 20px; /* 텍스트 사이즈 설정 */
 
       // 텍스트 필드에서 기본 패딩 제거
@@ -108,6 +109,12 @@
         outline: none;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       }
+    }
+    button {
+      margin-top: 40px;
+      font-size: 30px;
+      padding: 20px;
+      box-shadow: inset -4px 4px 0px 0px rgb(77, 64, 64);
     }
   }
   .questionContainer {
@@ -160,7 +167,6 @@
     }
   }
   .resultContainer {
-    margin-top: 50px;
     color: #fff;
     text-align: center;
     font-family: Pretendard Variable;
@@ -171,11 +177,30 @@
     button {
       font-size: 16px;
       font-weight: 600;
+      box-shadow: inset -4px 4px 0px 0px rgb(77, 64, 64);
     }
   }
   .guessPeoplesContainer {
     width: 100%; // 컨테이너 폭
     height: 30vh;
+    display: grid; // CSS Grid 레이아웃 사용
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(120px, 1fr)
+    ); // 최소 120px, 가능한 경우 1fr로 채우며, 공간이 부족하면 새로운 행 생성
+    gap: 3%; // 그리드 아이템 사이 간격
+    justify-content: center; // 가로축 중앙 정렬
+    overflow-y: auto;
+    overflow-x: hidden;
+    button {
+      padding: 30px;
+      font-size: 20px;
+      box-shadow: inset -4px 4px 0px 0px rgb(77, 64, 64);
+    }
+  }
+  .votePeoplesContainer {
+    width: 100%; // 컨테이너 폭
+    height: 25vh;
     display: grid; // CSS Grid 레이아웃 사용
     grid-template-columns: repeat(
       auto-fill,
@@ -236,6 +261,7 @@
     display: flex;
     align-items: center;
     padding: 20px;
+    width: 90%;
     background-color: white;
     border-radius: 999px;
     box-shadow: inset -6px 6px 6px rgba(0, 0, 0, 0.16);
@@ -244,8 +270,8 @@
 
     .googleLogo {
       position: absolute; // 절대 위치 사용
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
     }
 
     .googleLoginText {
