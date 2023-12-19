@@ -3,7 +3,7 @@ import styles from "./Setting.module.scss"; // SCSS 모듈을 임포트합니다
 
 function Setting() {
   const DUMMY_USER_NAME = "김동규";
-  const DUMMY_SNOW_DOLLAR = "김동규";
+  const DUMMY_SNOW_DOLLAR = 50;
 
   return (
     <div className={styles.container}>

@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import GroupMake from './pages/GroupMake';
+import GroupHome from './pages/GroupHome';
 import './App.scss';
 import Waiting from './pages/Waiting';
 import QuestionList from './pages/QuestionList';
@@ -27,8 +28,8 @@ const AppContent = () => {
   const renderHeaderAndFooter = location.pathname !== '/';
 
   return (
-    <div className={'mainDiv'}>
-      <RecoilRoot>
+    <RecoilRoot>
+      <div className={'mainDiv'}>
         {/* "/" 경로가 아닐 때만 Header를 렌더링 */}
         {renderHeaderAndFooter && <Header />}
         <Routes>
@@ -36,6 +37,7 @@ const AppContent = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/groupMake" element={<GroupMake />} />
+          <Route path="/groupHome" element={<GroupHome />} />
           <Route path="/questionList" element={<QuestionList />} />
           <Route path="/vote" element={<Vote />} />
           <Route path="/waiting" element={<Waiting />} />
@@ -43,6 +45,7 @@ const AppContent = () => {
           <Route path="/questionResult" element={<QuestionResult />} />
           <Route path="/guessRightResult" element={<GuessRightResult />} />
           <Route path="/guessWrongResult" element={<GuessWrongResult />} />
+
           <Route path="/guess" element={<Guess />} />
           <Route path="/:roomName/vote/:memberID" element={<Vote />} />
           <Route path="invitation/:memberId/:groupId/" element={<InvitationCard />} />
@@ -51,8 +54,8 @@ const AppContent = () => {
           {/* ...other routes */}
         </Routes>
         {renderHeaderAndFooter && <Footer />}
-      </RecoilRoot>
-    </div>
+      </div>
+    </RecoilRoot>
   );
 };
 

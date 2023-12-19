@@ -16,7 +16,15 @@
   text-align: center;
   color: white;
   //수정 필요.
+  .loginWelcome {
+    color: #fff;
 
+    text-align: center;
+    font-family: Pretendard Variable;
+    font-size: 30px;
+    font-style: normal;
+    text-shadow: 10px 10px 7px lightgray;
+  }
   .imageContainer {
     margin-bottom: 40px; /* 이미지와 버튼 사이의 마진 */
     display: flex; /* Flexbox 레이아웃 사용 */
@@ -216,6 +224,11 @@
       letter-spacing: -0.35px;
       text-decoration-line: underline;
     }
+  }
+  .Login{
+    img{width: 308px;
+        height: 70px;
+      }
   }
 }
 

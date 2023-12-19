@@ -100,7 +100,7 @@ function LoadingScreen() {
         <Button
           text={"시작하기"}
           onClick={() => {
-            navigate("/home"); // 예시 경로
+            navigate("/login"); // 예시 경로
           }}
         />
       ) : (
