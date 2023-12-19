@@ -27,7 +27,7 @@ $flake-size: 8px;
   opacity: 0;
 
   border-radius: 50%; /*원형으로 만들어줌 */
-  animation: flakes 5s linear infinite;
+  animation: flakes 10s linear infinite;
   &:before {
     content: "❄";
     display: block;
@@ -39,20 +39,26 @@ $flake-size: 8px;
 }
 
 .flake:nth-of-type(2n) {
-  width: 4px;
-  height: 4px;
+  width: 2px;
+  height: 2px;
   animation-duration: 7s;
   animation-delay: 1s;
 }
 .flake:nth-of-type(2n + 1) {
+  width: 1px;
+  height: 1px;
   animation-duration: 8s;
   animation-delay: 2s;
 }
 
 .flake:nth-of-type(5n) {
   animation-duration: 6s;
+  width: 3px;
+  height: 3px;
 }
 .flake:nth-of-type(9n) {
+  width: 0.5px;
+  height: 0.5px;
   animation-duration: 9s;
   animation-delay: 3s;
 }
