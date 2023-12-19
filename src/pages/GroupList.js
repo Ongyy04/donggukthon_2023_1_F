@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Home.module.scss";
 import Button from "../components/Button";
+import { useQuery } from "react-query";
+import { getGroups } from "../api/group";
 
 const DUMMY_GROUPS = [
   "동국대 헤커톤1",
@@ -13,8 +15,16 @@ const DUMMY_GROUPS = [
   "동국대 헤커톤8",
 ];
 
-function GroupList() {
+const GroupList = () => {
   const [imageLoaded, setImageLoaded] = useState(true);
+  const {
+    data: groupsData,
+    error,
+    isLoading,
+  } = useQuery(["groups"], () => getGroups(1), {
+    select: (groupsData) => groupsData.data.groupList,
+  }); // 임시로 1번 멤버의 그룹을 가져옴
+
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
@@ -46,6 +56,6 @@ function GroupList() {
       )}
     </div>
   );
-}
+};
 
 export default GroupList;

@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { getQuestions } from "../api/question";
+import { defaultInstance } from "../api/instance";
+import { getGroups } from "../api/group";
 
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(true);
@@ -15,6 +18,7 @@ function Home() {
   const handleGroupListButton = () => {
     navigate("/groupList");
   };
+
   return (
     <div className={styles.container}>
       {imageLoaded ? (

@@ -9,10 +9,6 @@ export const vote = (questionId, voterId, selectedMemberId) =>
     selectedMemberId,
   });
 
-// 투표 목록
-export const getQuestionList = (memberId) =>
-  sendRequest(voteInstance, "get", `/${memberId}`);
-
 // 투표 결과 조회
 export const getResult = (memberId, questionId) =>
   sendRequest(

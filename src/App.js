@@ -17,6 +17,9 @@ import "./App.scss";
 import Waiting from "./pages/Waiting";
 import QuestionList from "./pages/QuestionList";
 import GroupList from "./pages/GroupList";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const AppContent = () => {
   const location = useLocation();
@@ -46,9 +49,11 @@ const AppContent = () => {
 
 function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <AppContent />
+      </Router>
+    </QueryClientProvider>
   );
 }
 
