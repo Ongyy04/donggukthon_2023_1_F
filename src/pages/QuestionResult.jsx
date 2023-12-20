@@ -35,6 +35,7 @@ function QuestionResult() {
     console.log('당신이 누른 사람은', e.target.textContent, '입니다.');
     navigator('/waiting');
   };
+
   const handleStartQuestionPick = (groupId, questionId) => {
     navigator('/guess/' + groupId + '?question=' + questionId);
   };
@@ -59,9 +60,11 @@ function QuestionResult() {
               <h2>
                 {`${resultData.mostVoted}님이 이 질문에 대해 \n가장 많은 표인 ${resultData.mostVotedCnt}표를 얻었고 \n 당신은 ${resultData.myVoteCnt}표를 얻었습니다.`}
               </h2>
-              <Button
-                text={'날 뽑은 사람 맞추러 가기'}
-                onClick={() => handleStartQuestionPick(groupId, questionIdFromParam)}></Button>
+              {resultData.myVoteCnt !== 0 && (
+                <Button
+                  text={'날 뽑은 사람 맞추러 가기'}
+                  onClick={() => handleStartQuestionPick(groupId, questionIdFromParam)}></Button>
+              )}
             </div>
           </div>
         ) : (

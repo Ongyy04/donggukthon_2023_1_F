@@ -7,9 +7,11 @@ import { acceptInvitation } from '../api/invitation';
 import { useMutation, useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { getUser } from '../api/auth';
-
+import { themeState } from '../stores/theme';
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(true);
+  const [theme, setTheme] = useRecoilState(themeState);
+
   const inviterID = localStorage.getItem('InviterID');
   const groupID = localStorage.getItem('GroupID');
   const [user, setUser] = useRecoilState(userState);
@@ -64,7 +66,7 @@ function Home() {
   return (
     <div className={styles.container}>
       {imageLoaded ? (
-        <div className={styles.ImgandObjectContainer}>
+        <div className={theme === '' ? styles.ImgandObjectContainer : styles.lightImgandObjectContainer}>
           <div className={styles.imageContainer}>
             <img src="/assets/snow-character.png" alt="Decorative Snowflake" onLoad={handleImageLoad} />
           </div>

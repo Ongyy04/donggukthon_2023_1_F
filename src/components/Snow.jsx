@@ -9,7 +9,7 @@ const Snow = () => {
   const [theme, setTheme] = useRecoilState(themeState);
 
   return (
-    <div className={`${theme}my-container`}>
+    <div className={theme === '' ? 'my-container' : 'light-container'}>
       {Array.from({ length: 150 }, (_, index) => (
         <div
           key={index}
