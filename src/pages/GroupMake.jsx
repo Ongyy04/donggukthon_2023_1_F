@@ -15,7 +15,7 @@ function GroupMake() {
 
   const { mutate: makeGroup } = useMutation(args => createGroup(args.memberId, args.name), {
     onSuccess: (data, variables) => {
-      // 'data'는 'createGroup' 함수의 실행 결과 받는 Response, 'variables'는 'makeGroup' 함수에 전달된 인자
+      // 'data'는 'createGroup' 함수의 실행 결과 받는 Response, 'variables'는 'makeGroup' 함수에 전달된 인자, 즉, Request
       const groupId = data.groupId;
       console.log('그룹 만들기 성공');
       navigate(`/shareGroup/${variables.memberId}`, { state: { memberId: variables.memberId, groupId: groupId } });
