@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Footer.scss';
-import { themeState } from '../stores/theme';
-import { useRecoilState } from 'recoil';
+import { useLocation } from 'react-router-dom';
 
 function Footer() {
-  const [theme, setTheme] = useRecoilState(themeState);
-
   const [activeButton, setActiveButton] = useState('home');
 
   const navigate = useNavigate();
+  const handleActiveButton = isActive => {
+    if (isActive) {
+      setActiveButton('home');
+    }
+    // 여기에 버튼 활성화 상태를 설정하는 로직
+  };
+  const location = useLocation();
 
   // 이미지 로드 상태를 업데이트하는 함수
 
@@ -29,6 +33,14 @@ function Footer() {
     setActiveButton('settings');
     navigate('/setting');
   };
+  useEffect(() => {
+    // 현재 경로가 '/login'으로 시작하는지 확인
+    if (location.pathname.startsWith('/login')) {
+      handleActiveButton(true); // '/login'으로 시작하면 버튼을 활성화
+    } else {
+      handleActiveButton(false); // 그렇지 않으면 비활성화
+    }
+  }, [location]); // location 객체가 변경될 때마다 이 효과 실행
 
   return (
     <footer className="footer">
