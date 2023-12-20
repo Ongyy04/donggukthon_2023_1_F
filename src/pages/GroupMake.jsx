@@ -23,7 +23,9 @@ function GroupMake() {
       console.log('그룹 만들기 성공');
       console.log('그룹 ID', groupId);
 
-      navigate(`/shareGroup/${variables.memberId}`, { state: { memberId: variables.memberId, groupId: groupId , groupName: groupName} });
+      navigate(`/shareGroup/${variables.memberId}`, {
+        state: { memberId: variables.memberId, groupId: groupId, groupName: groupName },
+      });
     },
     onError: () => {
       console.log('그룹 생성 실패');
