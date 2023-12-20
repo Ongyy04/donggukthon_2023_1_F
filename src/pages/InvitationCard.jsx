@@ -8,10 +8,8 @@ import { getInvitation } from '../api/invitation';
 import { useQuery } from 'react-query';
 
 const InvitationCard = () => {
+  const navigator = useNavigate();
   const { inviterId, groupId } = useParams();
-  {
-    /*멤버 아이디랑, groupID를 보내면, 이름이랑, 그룹 이름을 받아와야함. */
-  }
   const { data, isLoading, error } = useQuery(
     ['invitation', inviterId, groupId],
     () => getInvitation(inviterId, groupId),
@@ -27,7 +25,16 @@ const InvitationCard = () => {
     },
   );
 
-  const navigator = useNavigate();
+
+  /* 
+  const {
+    data: groupsData,
+    error,
+    isLoading,
+  } = useQuery(['groups', user.memberId], () => getGroups(user.memberId), {
+    select: groupsData => groupsData.data.groupList,
+  }); // 임시로 1번 멤버의 그룹을 가져옴
+   */
   const handleAgreeClick = () => {
     localStorage.setItem('InviterID', inviterId);
     localStorage.setItem('GroupID', groupId);
@@ -36,9 +43,6 @@ const InvitationCard = () => {
   const handleGoIntoLogin = () => {
     navigator('/login');
   };
-  if (error) {
-    console.log('쿼리 에러', error);
-  }
   return (
     <>
       <Helmet>

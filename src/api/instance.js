@@ -40,5 +40,6 @@ const invitationInstance = axios.create(defaultInstance.defaults);
 invitationInstance.defaults.baseURL += '/invitation';
 
 const settingInstance = axios.create(defaultInstance.defaults);
-invitationInstance.defaults.baseURL += '/setting';
+settingInstance.defaults.baseURL += '/setting';
+
 export { defaultInstance, groupInstance, voteInstance, invitationInstance, questionInstance, settingInstance };

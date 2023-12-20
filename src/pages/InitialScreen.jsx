@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./InitialScreen.scss"; // 스타일시트 경로
-import styles from "./CarouselComponent.module.scss";
-import RenderIndicators from "../components/RenderIndicators";
-import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import classNames from "classnames";
+import React, { useState, useEffect, useRef } from 'react';
+import './InitialScreen.scss'; // 스타일시트 경로
+import styles from './CarouselComponent.module.scss';
+import RenderIndicators from '../components/RenderIndicators';
+import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
+import classNames from 'classnames';
 
 function LoadingScreen() {
   const navigate = useNavigate();
@@ -15,21 +15,17 @@ function LoadingScreen() {
   const [imgLoaded, setImgLoaded] = useState(false);
   const carouselRef = useRef(null);
 
-  const images = [
-    "/assets/thumbup.png",
-    "/assets/readingglasses.png",
-    "/assets/heart.png",
-  ];
+  const images = ['/assets/thumbup.png', '/assets/readingglasses.png', '/assets/heart.png'];
 
   const captions = [
-    "투표로 못다 한 진심을 \n전해보세요!",
-    "나에 대한 다른 사람들의 \n생각을 들어봐요!",
-    "누가 나를 선택했는지 \n맞춰봐요!",
+    '투표로 못다 한 진심을 \n전해보세요!',
+    '나에 대한 다른 사람들의 \n생각을 들어봐요!',
+    '누가 나를 선택했는지 \n맞춰봐요!',
   ];
   const miniCaptions = [
     "익명으로 내가 생각하는 상대를 'Pick'해요 ",
-    "다른 사람들은 어떻게 \n생각했는지 볼 수 있어요.",
-    "눈꽃을 모으면 누가 나를 \n선택했는지 맞춰볼 수 있어요.",
+    '다른 사람들은 어떻게 \n생각했는지 볼 수 있어요.',
+    '눈꽃을 모으면 누가 나를 \n선택했는지 맞춰볼 수 있어요.',
   ];
 
   const handleLogoLoad = () => {
@@ -39,11 +35,11 @@ function LoadingScreen() {
     setImgLoaded(true);
   };
   //드래그로 로딩 화면 구현
-  const handleDragStart = (e) => {
+  const handleDragStart = e => {
     carouselRef.current.startX = e.touches[0].clientX;
   };
   // 드래그 함수 구현
-  const handleDragMove = (e) => {
+  const handleDragMove = e => {
     const touch = e.touches[0];
     const move = carouselRef.current.startX - touch.clientX;
 
@@ -59,7 +55,7 @@ function LoadingScreen() {
   useEffect(() => {
     if (logoLoaded) {
       const interval = setInterval(() => {
-        setProgress((oldProgress) => {
+        setProgress(oldProgress => {
           const newProgress = Math.min(oldProgress + 30, 100);
           if (newProgress === 100) {
             setIsLoading(true); // 로딩이 100%에 도달했을 때 실행
@@ -75,11 +71,7 @@ function LoadingScreen() {
 
   return isLoading ? (
     //로딩 완료시 사용할 화면 구성
-    <div
-      className={styles.carouselContainer}
-      onTouchStart={handleDragStart}
-      onTouchMove={handleDragMove}
-    >
+    <div className={styles.carouselContainer} onTouchStart={handleDragStart} onTouchMove={handleDragMove}>
       <div className={styles.carouselSlides} ref={carouselRef}>
         {images.map((src, index) => (
           <div
@@ -98,24 +90,20 @@ function LoadingScreen() {
       <p>{miniCaptions[currentSlide]}</p>
       {currentSlide === 2 ? (
         <Button
-          text={"시작하기"}
+          text={'시작하기'}
           onClick={() => {
-            navigate("/login"); // 예시 경로
+            navigate('/login'); // 예시 경로
           }}
         />
       ) : (
-        ""
+        <h1>Loading....</h1>
       )}
     </div>
   ) : (
     <div className="loading-layout">
       <div>
         <div className="Loading-image-container">
-          <img
-            src="/assets/Logo-white.png"
-            alt="로딩 중 이미지"
-            onLoad={handleLogoLoad}
-          />
+          <img src="/assets/Logo-white.png" alt="로딩 중 이미지" onLoad={handleLogoLoad} />
         </div>
       </div>
       {logoLoaded && (

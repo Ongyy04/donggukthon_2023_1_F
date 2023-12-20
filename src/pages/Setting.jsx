@@ -16,6 +16,21 @@ function Setting() {
       };
     },
   });
+
+  /*   
+  const {
+    data: groupsData,
+    error,
+    isLoading,
+  } = useQuery(['groups', user.memberId], () => getGroups(user.memberId), {
+    select: groupsData => groupsData.data.groupList,
+  }); // 임시로 1번 멤버의 그룹을 가져옴 */
+
+  /*           (groupsData) => (group)
+  <Button key={group.groupId} text={group.groupName} onClick={() => handleClickGroupName(group.groupId)} />
+
+            ))}{' '} */
+  console.log(data);
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
