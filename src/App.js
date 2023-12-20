@@ -50,8 +50,8 @@ const AppContent = () => {
             <Route path="/waiting/:groupId" element={<Waiting />} />
             <Route path="/groupList" element={<GroupList />} />
             <Route path="/questionResult/:groupId" element={<QuestionResult />} />
-            <Route path="/guessRightResult" element={<GuessRightResult />} />
-            <Route path="/guessWrongResult" element={<GuessWrongResult />} />
+            <Route path="/guessRightResult/:groupId" element={<GuessRightResult />} />
+            <Route path="/guessWrongResult/:groupId" element={<GuessWrongResult />} />
             <Route path="/shareGroup/:memberId" element={<ShareGroup />} />
             <Route path="/guess/:groupId" element={<Guess />} />
             <Route path="/setting" element={<Setting />} />
