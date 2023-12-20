@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../stores/user';
 import { getVoteGuess, guess } from '../api/vote';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 
 function Guess() {
   const user = useRecoilValue(userState);
@@ -31,12 +31,19 @@ function Guess() {
       },
     },
   );
+  const { mutate: guessMember } = useMutation(args =>
+    guess(args.memberId, args.selectedMemberId, args.questionId, args.groupId),
+  );
 
-  const hanedleClickNameButton = e => {
-    console.log('당신이 누른 사람은', e.target.textContent, '입니다.');
-    {
-      /*잘 뽑은 건지 확인하는 로직 필요 상황에 따라 보내줄 곳이 다름*/
-    }
+  const hanedleClickNameButton = selectedMemberId => {
+    // 추측하기
+    guessMember({
+      memberId: user.memberId,
+      selectedMemberId: selectedMemberId,
+      questionId: questionIdFromParam,
+      groupId: groupId,
+    });
+
     navigator('/guessWrongResult');
   };
 
@@ -56,7 +63,11 @@ function Guess() {
             </div>
             <div className={styles.guessPeoplesContainer}>
               {guessData.optionList.map(option => (
-                <Button key={option.memberId} text={option.memberName} onClick={hanedleClickNameButton} />
+                <Button
+                  key={option.memberId}
+                  text={option.memberName}
+                  onClick={() => hanedleClickNameButton(option.memberId)}
+                />
               ))}
             </div>
           </div>

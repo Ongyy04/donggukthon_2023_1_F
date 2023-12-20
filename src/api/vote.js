@@ -19,9 +19,10 @@ export const getVoteGuess = (memberId, groupId, questionId) =>
   sendRequest(voteInstance, 'get', `/guess/${memberId}/${groupId}/${questionId}`);
 
 // 투표 맞추기
-export const guess = (questionId, memberId, selectedMemberId) =>
+export const guess = (memberId, selectedMemberId, questionId, groupId) =>
   sendRequest(voteInstance, 'put', '/guess', {
-    questionId,
     memberId,
     selectedMemberId,
+    questionId,
+    groupId,
   });
