@@ -4,8 +4,12 @@ import Button from '../components/Button';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getQuestions } from '../api/question';
+import { useRecoilState } from 'recoil';
+import { themeState } from '../stores/theme';
 
 function QuestionList() {
+  const [theme, setTheme] = useRecoilState(themeState);
+
   const { groupId } = useParams();
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigator = useNavigate();
@@ -25,7 +29,7 @@ function QuestionList() {
   return (
     <div className={styles.container}>
       {imageLoaded ? (
-        <div className={styles.ImgandObjectContainer}>
+        <div className={theme === '' ? styles.ImgandObjectContainer : styles.lightImgandObjectContainer}>
           <h1>원하는 주제를 Pick! 하세요!</h1>
           <div className={styles.questionsContainer}>
             {questionsData?.map(question => (

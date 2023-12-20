@@ -17,9 +17,9 @@ const Header = ({ children }) => {
         }}>
         {/* 로고 이미지나 텍스트를 여기에 삽입 */}
         {theme === '' ? (
-          <img src="/assets/HeaderLogo-red.png" alt="Logo" style={{ width: '200px', height: '50px' }} />
-        ) : (
           <img src="/assets/HeaderLogo-white.png" alt="Logo" style={{ width: '200px', height: '50px' }} />
+        ) : (
+          <img src="/assets/HeaderLogo-red.png" alt="Logo" style={{ width: '200px', height: '50px' }} />
         )}
       </header>
       <main>{children}</main>

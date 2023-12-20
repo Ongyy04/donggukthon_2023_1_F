@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { themeState } from '../stores/theme';
 function GuessRightResult() {
   const [imageLoaded, setImageLoaded] = useState(true);
   const navigator = useNavigate();
@@ -11,7 +13,7 @@ function GuessRightResult() {
   const DUMMY_MyDollar = 50;
   const DUMMY_QUESIOTN = 'Q. 나는 2024년을 시작하면서, OO이랑 함께 목표를 세우고 싶어';
   const DUMMY_YOURPICK = '고나연';
-
+  const [theme, setTheme] = useRecoilState(themeState);
   const handleClickQuesionList = () => {
     navigator('/questionList');
   };

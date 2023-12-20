@@ -3,20 +3,22 @@ import styles from './Home.module.scss';
 import Button from '../components/Button';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import { userState } from '../stores/user';
 import { getResult } from '../api/vote';
-
+import { themeState } from '../stores/theme';
 function QuestionResult() {
   const { groupId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams(); // URL 파라미터를 가져오기 위한 Hook
   const questionIdFromParam = searchParams.get('question');
   const user = useRecoilValue(userState);
   const [imageLoaded, setImageLoaded] = useState(true);
+  const [theme, setTheme] = useRecoilState(themeState);
   const navigator = useNavigate();
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
+
   const {
     data: resultData,
     error,
@@ -41,7 +43,7 @@ function QuestionResult() {
     resultData && (
       <div className={styles.container}>
         {imageLoaded ? (
-          <div className={styles.ImgandObjectContainer}>
+          <div className={theme === '' ? styles.ImgandObjectContainer : styles.lightImgandObjectContainer}>
             <div className={styles.imageContainer}>
               <img
                 src="/assets/snow-character.png"

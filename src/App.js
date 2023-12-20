@@ -70,7 +70,7 @@ function App() {
       <Router>
         <AppContent />
       </Router>
-      {theme === '' ? <Snow /> : ''}
+      <Snow />
     </QueryClientProvider>
   );
 }

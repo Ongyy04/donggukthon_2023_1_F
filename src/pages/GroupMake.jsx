@@ -6,12 +6,16 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../stores/user';
 import { useNavigate } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { themeState } from '../stores/theme';
 function GroupMake() {
   const navigate = useNavigate();
   const user = useRecoilValue(userState);
   const [groupName, setGroupName] = useState(''); // 그룹명을 저장할 상태
   const [imageLoaded, setImageLoaded] = useState(true);
+  const [theme, setTheme] = useRecoilState(themeState);
+  const { memberId, groupId } = useParams(); // URL에서 memberId와 groupId 추출
 
   const { mutate: makeGroup } = useMutation(args => createGroup(args.memberId, args.name), {
     onSuccess: (data, variables) => {
@@ -43,7 +47,7 @@ function GroupMake() {
   return (
     <div className={styles.container}>
       {imageLoaded ? (
-        <div className={styles.ImgandObjectContainer}>
+        <div className={theme === '' ? styles.ImgandObjectContainer : styles.lightImgandObjectContainer}>
           <div className={styles.imageContainer}>
             <img src="/assets/snow-character.png" alt="Decorative Snowflake" onLoad={handleImageLoad} />
           </div>

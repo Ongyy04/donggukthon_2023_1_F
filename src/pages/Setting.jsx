@@ -39,7 +39,7 @@ function Setting() {
             ))}{' '} */
   console.log(data);
   return (
-    <div className={styles.container}>
+    <div className={theme===''?styles.container:styles.lightContainer}>
       <div className={styles.profile}>
         <div className={styles.userInfo}>
           <div className={styles.avatar}>

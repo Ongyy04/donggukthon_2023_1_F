@@ -6,8 +6,11 @@ import { useRecoilValue } from 'recoil';
 import { userState } from '../stores/user';
 import { getVoteGuess, guess } from '../api/vote';
 import { useMutation, useQuery } from 'react-query';
-
+import { useRecoilState } from 'recoil';
+import { themeState } from '../stores/theme';
 function Guess() {
+  const [theme, setTheme] = useRecoilState(themeState);
+
   const user = useRecoilValue(userState);
   const { groupId } = useParams();
   const searchParams = new URLSearchParams(window.location.search);
@@ -51,7 +54,7 @@ function Guess() {
     guessData && (
       <div className={styles.container}>
         {imageLoaded ? (
-          <div className={styles.ImgandObjectContainer}>
+          <div className={theme === '' ? styles.ImgandObjectContainer : styles.lightImgandObjectContainer}>
             <div className={styles.snowDollarContainer}>
               {/* 나중에 대체되어야 함.*/}
               <h1>{'나를 뽑을 것 같은 사람은?'}</h1>

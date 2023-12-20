@@ -8,8 +8,11 @@ import { getQuestion } from '../api/question';
 import { useMutation, useQuery } from 'react-query';
 import { useSearchParams } from 'react-router-dom';
 import { vote } from '../api/vote';
+import { useRecoilState } from 'recoil';
+import { themeState } from '../stores/theme';
 
 function Vote() {
+  const [theme, setTheme] = useRecoilState(themeState);
   const user = useRecoilValue(userState);
   const { groupId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams(); // URL 파라미터를 가져오기 위한 Hook
@@ -70,7 +73,7 @@ function Vote() {
   return (
     <div className={styles.container}>
       {imageLoaded && !isLoading ? (
-        <div className={styles.ImgandObjectContainer}>
+        <div className={theme === '' ? styles.ImgandObjectContainer : styles.lightImgandObjectContainer}>
           <div className={styles.imageContainer}>
             <img
               src="/assets/snow-character.png"
