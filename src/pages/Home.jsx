@@ -4,11 +4,9 @@ import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { userState } from '../stores/user';
 import { useRecoilValue } from 'recoil';
-import { getQuestions } from '../api/question';
-import { defaultInstance } from '../api/instance';
-import { getGroups } from '../api/group';
 import { acceptInvitation } from '../api/invitation';
 import { useMutation } from 'react-query';
+import { useRecoilValue } from 'recoil';
 
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(true);
@@ -16,6 +14,7 @@ function Home() {
   const groupID = localStorage.getItem('GroupID');
   const user = useRecoilValue(userState);
   const memberID = user.memberId;
+
   const navigate = useNavigate();
 
   const handleImageLoad = () => {

@@ -5,8 +5,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../stores/user';
 import { getQuestion } from '../api/question';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { useSearchParams } from 'react-router-dom';
+import { vote } from '../api/vote';
 
 function Vote() {
   const user = useRecoilValue(userState);
@@ -35,8 +36,12 @@ function Vote() {
     },
   );
 
-  const handleClickNameButton = e => {
-    console.log('당신이 누른 사람은', e.target.textContent, '입니다.');
+  const { mutate: voteMember } = useMutation(args =>
+    vote(args.questionId, args.voterId, args.selectedMemberId, args.groupId),
+  );
+
+  const handleClickNameButton = selectedMemberId => {
+    // console.log('당신이 누른 사람은', e.target.textContent, '입니다.');
     // 다음 질문으로 넘어가기 위한 로직
     if (questionData?.questionIdList) {
       const currentQuestionIndex = questionData.questionIdList.indexOf(parseInt(questionIdFromParam));
@@ -44,6 +49,15 @@ function Vote() {
         currentQuestionIndex !== -1
           ? questionData.questionIdList[currentQuestionIndex + 1]
           : questionData.questionIdList[1];
+
+      // 투표하기
+      voteMember({
+        questionId: questionIdFromParam,
+        voterId: user.memberId,
+        selectedMemberId: selectedMemberId,
+        groupId: groupId,
+      });
+
       if (nextQuestionId !== undefined) {
         setSearchParams({ question: nextQuestionId });
       } else {
@@ -70,7 +84,11 @@ function Vote() {
           </div>
           <div className={styles.guessPeoplesContainer}>
             {questionData?.optionList.map(option => (
-              <Button key={option.memberId} text={option.memberName} onClick={handleClickNameButton} />
+              <Button
+                key={option.memberId}
+                text={option.memberName}
+                onClick={() => handleClickNameButton(option.memberId)}
+              />
             ))}
           </div>
         </div>

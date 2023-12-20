@@ -19,8 +19,14 @@ import Guess from './pages/Guess';
 import GuessRightResult from './pages/GuessRightResult';
 import GuessWrongResult from './pages/GuessWrongResult';
 import InvitationCard from './pages/InvitationCard';
+<<<<<<< HEAD
 import ShareGroup from './pages/ShareGroup';
 import { RecoilRoot } from 'recoil';
+=======
+import { RecoilRoot, useRecoilValue } from 'recoil';
+import LoginRedirect from './pages/LoginRedirect';
+import ProtectedRoute from './components/ProtectedRoute';
+>>>>>>> 397ee4764d38fbb8b36f413f0fd04c7678d9b363
 
 const queryClient = new QueryClient();
 
@@ -36,6 +42,7 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<LoadingScreen />} />
           <Route path="/login" element={<Login />} />
+<<<<<<< HEAD
           <Route path="/home" element={<Home />} />
           <Route path="/groupMake" element={<GroupMake />} />
           <Route path="/groupHome/:groupId" element={<GroupHome />} />
@@ -50,8 +57,28 @@ const AppContent = () => {
           <Route path="/guess" element={<Guess />} />
           <Route path="/:groupName/vote/:memberID" element={<Vote />} />
           <Route path="invitation/:inviterId/:groupId/" element={<InvitationCard />} />
+=======
+          <Route path="/googleLogin" element={<LoginRedirect />} />
+          <Route path="invitation/:memberId/:groupId/" element={<InvitationCard />} />
+>>>>>>> 397ee4764d38fbb8b36f413f0fd04c7678d9b363
 
-          <Route path="/setting" element={<Setting />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/groupMake" element={<GroupMake />} />
+            <Route path="/groupHome/:groupId" element={<GroupHome />} />
+            <Route path="/questionList/:groupId" element={<QuestionList />} />
+            <Route path="/vote/:groupId" element={<Vote />} />
+            <Route path="/waiting/:groupId" element={<Waiting />} />
+            <Route path="/groupList" element={<GroupList />} />
+            <Route path="/questionResult/:groupId" element={<QuestionResult />} />
+            <Route path="/guessRightResult" element={<GuessRightResult />} />
+            <Route path="/guessWrongResult" element={<GuessWrongResult />} />
+
+            <Route path="/guess/:groupId" element={<Guess />} />
+            <Route path="/:roomName/vote/:memberID" element={<Vote />} />
+
+            <Route path="/setting" element={<Setting />} />
+          </Route>
           {/* ...other routes */}
         </Routes>
         {renderHeaderAndFooter && <Footer />}

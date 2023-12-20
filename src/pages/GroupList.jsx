@@ -17,6 +17,9 @@ const GroupList = () => {
     isLoading,
   } = useQuery(['groups', user.memberId], () => getGroups(user.memberId), {
     select: groupsData => groupsData.data.groupList,
+    onSuccess: data => {
+      console.log('그룹 목록 가져오기 성공', data);
+    },
   }); // 임시로 1번 멤버의 그룹을 가져옴
 
   const handleImageLoad = () => {

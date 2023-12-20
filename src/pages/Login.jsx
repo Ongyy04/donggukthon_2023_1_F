@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Home.module.scss';
+import { loginState } from '../stores/user';
+import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigator = useNavigate();
+  const isLoggedin = useRecoilValue(loginState);
   const [imageLoaded, setImageLoaded] = useState(true);
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
 
-  const handleClickGoogleLogin = () => {
-    console.log('구글 로그인 실행');
-    {
-      /*구글 로그인 관련 API 실행 */
-    }
+  const handleClickGoogleLogin = async () => {
+    window.location.href = process.env.REACT_APP_SERVER_URL + '/auth/login';
   };
+
+  useEffect(() => {
+    if (isLoggedin) {
+      console.log('이미 로그인 하셨습니다.');
+      navigator('/home');
+    }
+  }, [isLoggedin, navigator]);
 
   return (
     <div className={styles.container}>
