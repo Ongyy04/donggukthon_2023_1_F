@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import styles from './Home.module.scss';
 import Button from '../components/Button';
 import { useLocation } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 import { themeState } from '../stores/theme';
-
+import { useRecoilState } from 'recoil';
 function ShareGroup() {
   const [imageLoaded, setImageLoaded] = useState(true);
   const location = useLocation();
+  const { memberId, groupId, groupName } = location.state || {};
+
   const [theme, setTheme] = useRecoilState(themeState);
-  const { memberId, groupId } = location || {};
+
   //이제 이거로 memberId로 groupId도 알아오고 그거로 URL 링크 만들엉주기
-  
+
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
@@ -28,8 +29,8 @@ function ShareGroup() {
       },
     );
   };
-  const DUMMY_GROUPNAME = '동국톤 1팀';
-  const captions = `${DUMMY_GROUPNAME} 그룹 개설이 \n 완료되었습니다!`;
+
+  const captions = `${groupName} 그룹 개설이 \n 완료되었습니다!`;
 
   return (
     <div className={styles.container}>

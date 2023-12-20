@@ -15,14 +15,15 @@ function GroupMake() {
   const [groupName, setGroupName] = useState(''); // 그룹명을 저장할 상태
   const [imageLoaded, setImageLoaded] = useState(true);
   const [theme, setTheme] = useRecoilState(themeState);
-  const { memberId, groupId } = useParams(); // URL에서 memberId와 groupId 추출
 
   const { mutate: makeGroup } = useMutation(args => createGroup(args.memberId, args.name), {
-    onSuccess: (data, variables) => {
+    onSuccess: (response, variables) => {
       // 'data'는 'createGroup' 함수의 실행 결과 받는 Response, 'variables'는 'makeGroup' 함수에 전달된 인자, 즉, Request
-      const groupId = data.groupId;
+      const groupId = response.data.groupId;
       console.log('그룹 만들기 성공');
-      navigate(`/shareGroup/${variables.memberId}`, { state: { memberId: variables.memberId, groupId: groupId } });
+      console.log('그룹 ID', groupId);
+
+      navigate(`/shareGroup/${variables.memberId}`, { state: { memberId: variables.memberId, groupId: groupId , groupName: groupName} });
     },
     onError: () => {
       console.log('그룹 생성 실패');

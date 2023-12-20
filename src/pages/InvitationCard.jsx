@@ -48,6 +48,8 @@ const InvitationCard = () => {
     <>
       <Helmet>
         <title>플러팅 초대장</title>
+        <link rel="icon" href="/assets/snow-character.png" />
+
         <meta property="og:title" content="초대장을 받아보세요!" />
         <meta property="og:description" content="투표로 못다 한 진심을 전해보세요!" />
         <meta property="og:image" content="https://flirting.vercel.app/assets/snow-character.png" />
