@@ -3,7 +3,6 @@ import styles from './Home.module.scss';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { userState } from '../stores/user';
-import { useRecoilValue } from 'recoil';
 import { acceptInvitation } from '../api/invitation';
 import { useMutation } from 'react-query';
 import { useRecoilValue } from 'recoil';

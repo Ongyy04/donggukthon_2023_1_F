@@ -1,4 +1,4 @@
-import { sendRequest } from '../utils/api';
+import { sendRequest } from '../utils/request';
 import { invitationInstance } from './instance';
 
 // 초대장 조회
