@@ -52,7 +52,7 @@ function Vote() {
 
       // 투표하기
       voteMember({
-        questionId: questionIdFromParam === -1 ? 0 : questionIdFromParam,
+        questionId: questionIdFromParam === -1 ? 1 : questionIdFromParam,
         voterId: user.memberId,
         selectedMemberId: selectedMemberId,
         groupId: groupId,
