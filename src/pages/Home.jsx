@@ -22,8 +22,6 @@ function Home() {
     navigate('/groupList');
   };
 
-  console.log(isLoggedIn);
-
   return (
     <div className={styles.container}>
       {imageLoaded ? (

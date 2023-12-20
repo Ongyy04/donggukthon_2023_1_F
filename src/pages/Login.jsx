@@ -18,12 +18,10 @@ function Login() {
 
   useEffect(() => {
     if (isLoggedin) {
-      alert('이미 로그인 하셨습니다.');
+      console.log('이미 로그인 하셨습니다.');
       navigator('/home');
     }
   }, [isLoggedin, navigator]);
-
-  console.log(isLoggedin);
 
   return (
     <div className={styles.container}>
