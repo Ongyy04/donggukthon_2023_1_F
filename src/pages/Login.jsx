@@ -13,7 +13,7 @@ function Login() {
   };
 
   const handleClickGoogleLogin = async () => {
-    window.location.href = process.env.REACT_APP_SERVER_URL + '/auth/login';
+    window.location.href = 'https://donggukthon.site/auth/login';
   };
 
   useEffect(() => {
