@@ -57,7 +57,7 @@ function Guess() {
             <div className={styles.guessPeoplesContainer}>
               {guessData.optionList.map(option => (
                 <Button key={option.memberId} text={option.memberName} onClick={hanedleClickNameButton} />
-              ))}{' '}
+              ))}
             </div>
           </div>
         ) : (
