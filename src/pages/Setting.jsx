@@ -42,14 +42,12 @@ function Setting() {
     <div className={styles.container}>
       <div className={styles.profile}>
         <div className={styles.userInfo}>
-          <div className={styles.avatar}></div>
+          <div className={styles.avatar}>
+            <img src="/assets/user-profile.png" alt="user-profile" width="40px" height="40px" />
+          </div>
           <div className={styles.details}>
-            {!isLoading && data && (
-              <>
-                <span className={styles.name}>{`이름: ${data.name}`}</span>
-                <span className={styles.name}>{`❄️: ${data.snowflakes}`}</span>
-              </>
-            )}
+            <span className={styles.name}>{`이름: ${user.memberName}`}</span>
+            <span className={styles.name}>{`❄️: ${user.snowflakes}`}</span>
           </div>
         </div>
         <div className={styles.menu}>

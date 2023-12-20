@@ -4,16 +4,27 @@ import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { userState } from '../stores/user';
 import { acceptInvitation } from '../api/invitation';
-import { useMutation } from 'react-query';
-import { useRecoilValue } from 'recoil';
+import { useMutation, useQuery } from 'react-query';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { getUser } from '../api/auth';
 
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(true);
   const inviterID = localStorage.getItem('InviterID');
   const groupID = localStorage.getItem('GroupID');
-  const user = useRecoilValue(userState);
-  //memberID 가져오기, fetching 해야함.
-  const memberID = user.memberId;
+  const [user, setUser] = useRecoilState(userState);
+  const memberID = user?.memberId;
+  const { data: userData } = useQuery(['user'], getUser, {
+    select: userData => userData.data,
+    onSuccess: userData => {
+      setUser({
+        memberId: userData.memberId,
+        memberName: userData.memberResponse.name,
+        snowflakes: userData.snowflake,
+      });
+      console.log('유저 정보 가져오기 성공', userData);
+    },
+  });
 
   const navigate = useNavigate();
 
