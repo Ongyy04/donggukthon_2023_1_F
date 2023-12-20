@@ -1,11 +1,15 @@
 // Snow.js
 
-import React from "react";
-import "./Snow.scss";
+import React from 'react';
+import './Snow.scss';
+import { themeState } from '../stores/theme';
+import { useRecoilState } from 'recoil';
 
 const Snow = () => {
+  const [theme, setTheme] = useRecoilState(themeState);
+
   return (
-    <div className="my-container">
+    <div className={`${theme}-my-container`}>
       {Array.from({ length: 150 }, (_, index) => (
         <div
           key={index}

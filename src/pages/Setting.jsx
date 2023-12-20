@@ -1,12 +1,19 @@
 import React from 'react';
 import styles from './Setting.module.scss'; // SCSS 모듈을 임포트합니다.
 import { getSetting } from '../api/setting';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import { userState } from '../stores/user';
 import { useQuery } from 'react-query';
+import { themeState } from '../stores/theme';
 
 function Setting() {
   const user = useRecoilValue(userState);
+  const [theme, setTheme] = useRecoilState(themeState);
+
+  const toggleTheme = () => {
+    setTheme(theme === '' ? 'light' : '');
+  };
+
   const { data, isLoading, error } = useQuery(['setting', user.memberId], () => getSetting(user.memberId), {
     select: responseData => {
       // 'select' 옵션을 사용하여 필요한 데이터만 추출
@@ -57,7 +64,9 @@ function Setting() {
           <div className={styles.menuItem}>알림 설정</div>
           <div className={styles.menuItem}>암호 잠금</div>
           <div className={styles.menuItem}>캐시 삭제</div>
-          <div className={styles.menuItem}>테마 설정</div>
+          <div className={styles.menuItem} onClick={toggleTheme}>
+            테마 설정
+          </div>
           <div className={styles.menuItem}>개인정보 처리방침</div>
           <div className={styles.menuItem}>서비스 이용약관</div>
           <div className={styles.menuItem}>문의하기</div>
