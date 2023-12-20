@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 
 function Setting() {
   const user = useRecoilValue(userState);
-  const { data, isLoading, error } = useQuery(['setting', user.memberId], () => getSetting(user.memberId), {
+  /* const { data, isLoading, error } = useQuery(['setting', user.memberId], () => getSetting(user.memberId), {
     select: responseData => {
       // 'select' 옵션을 사용하여 필요한 데이터만 추출
       return {
@@ -15,34 +15,18 @@ function Setting() {
         snowflakes: responseData.data.snowflakes,
       };
     },
-  });
+  }); */
 
-  /*   
-  const {
-    data: groupsData,
-    error,
-    isLoading,
-  } = useQuery(['groups', user.memberId], () => getGroups(user.memberId), {
-    select: groupsData => groupsData.data.groupList,
-  }); // 임시로 1번 멤버의 그룹을 가져옴 */
-
-  /*           (groupsData) => (group)
-  <Button key={group.groupId} text={group.groupName} onClick={() => handleClickGroupName(group.groupId)} />
-
-            ))}{' '} */
-  console.log(data);
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
         <div className={styles.userInfo}>
-          <div className={styles.avatar}></div>
+          <div className={styles.avatar}>
+            <img src="/assets/user-profile.png" alt="user-profile" width="40px" height="40px" />
+          </div>
           <div className={styles.details}>
-            {!isLoading && data && (
-              <>
-                <span className={styles.name}>{`이름: ${data.name}`}</span>
-                <span className={styles.name}>{`❄️: ${data.snowflakes}`}</span>
-              </>
-            )}
+            <span className={styles.name}>{`이름: ${user.memberName}`}</span>
+            <span className={styles.name}>{`❄️: ${user.snowflakes}`}</span>
           </div>
         </div>
         <div className={styles.menu}>

@@ -19,14 +19,18 @@
 
   .userInfo {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
+    gap: 40px;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
 
   .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-size: cover;
     border-radius: 20%;
     border-width: 1px;
