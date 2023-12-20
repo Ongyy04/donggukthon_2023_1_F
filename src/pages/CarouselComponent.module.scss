@@ -8,7 +8,16 @@
   height: 100vh;
   white-space: pre-line;
   overflow: hidden;
-
+  .dragright {
+    color: #ce294d;
+    text-align: center;
+    font-family: Pretendard Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px; /* 185.714% */
+    letter-spacing: -0.35px;
+  }
   .carouselSlides {
     display: flex;
     width: 100%;

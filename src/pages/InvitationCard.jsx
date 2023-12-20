@@ -25,7 +25,6 @@ const InvitationCard = () => {
     },
   );
 
-
   /* 
   const {
     data: groupsData,
@@ -36,6 +35,8 @@ const InvitationCard = () => {
   }); // 임시로 1번 멤버의 그룹을 가져옴
    */
   const handleAgreeClick = () => {
+    console.log('InviterID:', inviterId, 'GroupID:', groupId);
+
     localStorage.setItem('InviterID', inviterId);
     localStorage.setItem('GroupID', groupId);
     navigator('/login');

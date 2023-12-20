@@ -96,7 +96,7 @@ function LoadingScreen() {
           }}
         />
       ) : (
-        <h1>Loading....</h1>
+        <p className={styles.dragright}>오른쪽으로 드래그하실 수 있어요!</p>
       )}
     </div>
   ) : (

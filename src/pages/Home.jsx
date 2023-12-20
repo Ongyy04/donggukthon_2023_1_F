@@ -12,6 +12,7 @@ function Home() {
   const inviterID = localStorage.getItem('InviterID');
   const groupID = localStorage.getItem('GroupID');
   const user = useRecoilValue(userState);
+  //memberID 가져오기, fetching 해야함.
   const memberID = user.memberId;
 
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ function Home() {
     mutate: acceptGroupInvitation,
     error,
     isLoading,
-  } = useMutation(() => acceptInvitation(memberID, groupID, inviterID), {
+  } = useMutation(args => acceptInvitation(args.memberID, args.groupID, args.inviterID), {
     onSuccess: () => {
       console.log(memberID, '님이', groupID, '에 참가했습니다.');
       localStorage.removeItem('InviterID');
@@ -45,9 +46,9 @@ function Home() {
 
   useEffect(() => {
     if (inviterID && groupID) {
-      acceptGroupInvitation();
+      acceptGroupInvitation({ memberID: memberID, inviterID: inviterID, groupID: groupID });
     }
-  }, [inviterID, groupID, acceptGroupInvitation]);
+  }, [memberID, inviterID, groupID, acceptGroupInvitation]);
 
   return (
     <div className={styles.container}>
