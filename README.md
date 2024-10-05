@@ -1,6 +1,9 @@
-## ❄️ FLIRTING
-![Slide 16_9 - 29](https://github.com/donggukthon/donggukthon_2023_1_B/assets/84651773/ceb5b183-fe23-4fef-b877-3c92bab73311)
-<br>
+## ❄️ 못다 한 진심을 전하는 투표 서비스 'FLIRTING'
+#### 2023년도 동국톤 우수상
+#### 프로젝트 기간 : 2024.11-2024.12
+#### 디자인기간 : 2024.11-2024.12
+
+
 ## 👋🏻 프로젝트 소개
 - 연말이 나면 가장 생각나는 사람은 __야.
 - 나는 __이가 가장 따뜻한 겨울을 보냈으면 좋겠어.
@@ -65,9 +68,21 @@ FLIRTING 사용해보기 👉🏻 (https://flirting.vercel.app/) <br/>
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
 </div>
 
-<br>
-
 ## 🔨 프로젝트 아키텍처
 
 <img width="1187" alt="스크린샷 2023-12-19 오후 8 32 37" src="https://github.com/donggukthon/donggukthon_2023_1_B/assets/84651773/ef5f5bcd-3507-4e7d-9f2d-800994a1b7e4">
 <br>
+## 🗣 팀원 소개
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href=""><img src="https://github.com/user-attachments/assets/7c7de03d-e3ac-4403-be66-32abeef77dfd" width="100px;" alt="기획: 최연아"/><br /><sub><b>기획: 최연아</b></sub></a><br /></td>
+     <td align="center"><a href=""><img src="https://github.com/user-attachments/assets/d5a8a20b-ac7c-4b88-9d0d-ea374b2fd39b" width="100px;" alt="디자인: 오은서"/><br /><sub><b>디자인: 오은서</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/user-attachments/assets/c42244cf-7b6c-495b-8c49-c638cbd151ee" width="100px;" alt="프론트엔드: 홍규진"/><br /><sub><b>프론트엔드: 홍규진</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/user-attachments/assets/3d68ce6a-08d1-46dd-ad20-0caf2b7ebc74" width="100px;" alt="프론트엔드: 공소연"/><br /><sub><b>프론트엔드: 공소연</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/user-attachments/assets/4dacfc99-8fbf-4591-a4ae-82653ae8e822" width="100px;" alt="백엔드: 고나연"/><br /><sub><b>백엔드: 고나연</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/user-attachments/assets/f10834c7-7800-40e7-a821-e87d40b9c86b" width="100px;" alt="백엔드: 김성준"/><br /><sub><b>백엔드: 김성준</b></sub></a><br /></td>
+    </tr>
+  </tbody>
+</table>
+
