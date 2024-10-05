@@ -78,37 +78,37 @@ FLIRTING 사용해보기 👉🏻 (https://flirting.vercel.app/) <br/>
   <tbody>
     <tr>
       <td align="center">
-        <a href="">
+   
           <img src="https://github.com/user-attachments/assets/7c7de03d-e3ac-4403-be66-32abeef77dfd" width="100px" alt="기획: 최연아"/><br />
           <sub><b>기획: 최연아</b></sub>
         </a><br />
       </td>
       <td align="center">
-        <a href="">
+    
           <img src="https://github.com/user-attachments/assets/d5a8a20b-ac7c-4b88-9d0d-ea374b2fd39b" width="100px" alt="디자인: 오은서"/><br />
           <sub><b>디자인: 오은서</b></sub>
         </a><br />
       </td>
       <td align="center">
-        <a href="">
+  
           <img src="https://github.com/user-attachments/assets/c42244cf-7b6c-495b-8c49-c638cbd151ee" width="100px" alt="프론트엔드: 홍규진"/><br />
           <sub><b>프론트엔드: 홍규진</b></sub>
         </a><br />
       </td>
       <td align="center">
-        <a href="">
+ 
           <img src="https://github.com/user-attachments/assets/3d68ce6a-08d1-46dd-ad20-0caf2b7ebc74" width="100px" alt="프론트엔드: 공소연"/><br />
           <sub><b>프론트엔드: 공소연</b></sub>
         </a><br />
       </td>
       <td align="center">
-        <a href="">
+      
           <img src="https://github.com/user-attachments/assets/4dacfc99-8fbf-4591-a4ae-82653ae8e822" width="100px" alt="백엔드: 고나연"/><br />
           <sub><b>백엔드: 고나연</b></sub>
         </a><br />
       </td>
       <td align="center">
-        <a href="">
+   
           <img src="https://github.com/user-attachments/assets/f10834c7-7800-40e7-a821-e87d40b9c86b" width="100px" alt="백엔드: 김성준"/><br />
           <sub><b>백엔드: 김성준</b></sub>
         </a><br />
